@@ -1,0 +1,19 @@
+.order {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #3866415b;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 80%;
+  gap: 50px;
+}
+
+.order h3 span {
+  padding-left: 30px;
+  font-size: 33px;
+}
+.order .order-total {
+  margin-top: solid 5px #132216;
+}

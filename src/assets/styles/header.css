@@ -1,0 +1,44 @@
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f77f00;
+  height: 10vw;
+  width: 100%;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  gap: 30px;
+}
+header div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header h1 {
+  font-weight: 700;
+  font-size: 72px;
+  color: #001e04;
+  /* text-shadow: 1px 0px 2px; */
+}
+.header h2 {
+  /* text-shadow: 1px 0px 2px; */
+  font-size: 42px;
+  text-align: center;
+  color: #001e04;
+}
+
+.header img {
+  width: 8vw;
+}
+.icon-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  background-color: #f30707;
+  border-radius: 50%;
+}

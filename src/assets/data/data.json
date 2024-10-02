@@ -1,0 +1,492 @@
+[
+  {
+    "name": "BIG KING XXL®",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/BIG%20KING%20XXL%C2%AE.png",
+    "price": 8.7
+  },
+  {
+    "name": "Cheeseburger",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Cheeseburger.png",
+    "price": 3.2
+  },
+  {
+    "name": "Cheeseburger enfant",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Cheeseburger%20enfant.png",
+    "price": 1.8
+  },
+  {
+    "name": "Chocolat chaud",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Chocolat%20chaud.png",
+    "price": 2.3
+  },
+  {
+    "name": "Double Cheese Bacon XXL",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Double%20Cheese%20Bacon%20XXL.png",
+    "price": 9.3
+  },
+  {
+    "name": "Double Steakhouse",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Double%20Steakhouse.png",
+    "price": 9.8
+  },
+  {
+    "name": "Double WHOPPER® Cheese",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Double%20WHOPPER%C2%AE%20Cheese.png",
+    "price": 9.3
+  },
+  {
+    "name": "Hamburger",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Hamburger.png",
+    "price": 2.7
+  },
+  {
+    "name": "Hamburger enfant",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Hamburger%20enfant.png",
+    "price": 1.5
+  },
+  {
+    "name": "King Fish",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/King%20Fish.png",
+    "price": 3.9
+  },
+  {
+    "name": "San Pellegrino®(50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/San%20Pellegrino%C2%AE%2850cl%29.png",
+    "price": 3.2
+  },
+  {
+    "name": "Steakhouse",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Steakhouse.png",
+    "price": 7.6
+  },
+  {
+    "name": "Thé vert menthe",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Th%C3%A9%20vert%20menthe.png",
+    "price": 2.2
+  },
+  {
+    "name": "Vittel® (33cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Vittel%C2%AE%20%2833cl%29.png",
+    "price": 2.8
+  },
+  {
+    "name": "WHOPPER®",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/WHOPPER%C2%AE.png",
+    "price": 7.2
+  },
+  {
+    "name": "Petites frites",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Petites%20frites.png",
+    "price": 2.7
+  },
+  {
+    "name": "Moyennes frites",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Moyennes%20frites.png",
+    "price": 3.3
+  },
+  {
+    "name": "Grandes frites",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Grandes%20frites.png",
+    "price": 3.4
+  },
+  {
+    "name": "Jus d'Orange Minute Maid® (33cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Jus%20d%27Orange%20Minute%20Maid%C2%AE%20%2833cl%29.png",
+    "price": 3
+  },
+  {
+    "name": "Chili Cheese (4)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Chili%20Cheese%20%284%29.png",
+    "price": 4
+  },
+  {
+    "name": "Chili Cheese (6)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Chili%20Cheese%20%286%29.png",
+    "price": 5.6
+  },
+  {
+    "name": "Chili Cheese (9)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Chili%20Cheese%20%289%29.png",
+    "price": 6.8
+  },
+  {
+    "name": "Onion Rings (4)",
+    "image": "https://burgerkingfrance.twic.pics/img/products/e/3f/e3fc35c3-3790-4d7a-9c9a-0936e92fe60b_",
+    "price": 1.9
+  },
+  {
+    "name": "Onion Rings (6)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Onion%20Rings%20%286%29.png",
+    "price": 2.7
+  },
+  {
+    "name": "Onion Rings (9)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Onion%20Rings%20%289%29.png",
+    "price": 3.6
+  },
+  {
+    "name": "Sauce Ketchup",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Sauce%20Ketchup.png",
+    "price": 0.3
+  },
+  {
+    "name": "Sauce Mayonnaise",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Sauce%20Mayonnaise.png",
+    "price": 0.3
+  },
+  {
+    "name": "Sauce Curry",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Sauce%20Curry.png",
+    "price": 0.5
+  },
+  {
+    "name": "Sauce Aigre Douce",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Sauce%20Aigre%20Douce.png",
+    "price": 0.5
+  },
+  {
+    "name": "Sauce Balsamique",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Sauce%20Balsamique.png",
+    "price": 0.7
+  },
+  {
+    "name": "Sauce Caesar",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Sauce%20Caesar.png",
+    "price": 0.7
+  },
+  {
+    "name": "Vittel® (50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Vittel%C2%AE%20%2850cl%29.png",
+    "price": 3.2
+  },
+  {
+    "name": "Coca-Cola Sans Sucres® (25cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Coca-Cola%20Sans%20Sucres%C2%AE%20%2825cl%29.png",
+    "price": 2.6
+  },
+  {
+    "name": "Coca-Cola Sans Sucres® (40cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Coca-Cola%20Sans%20Sucres%C2%AE%20%2840cl%29.png",
+    "price": 3
+  },
+  {
+    "name": "Coca-Cola Sans Sucres® (50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Coca-Cola%20Sans%20Sucres%C2%AE%20%2850cl%29.png",
+    "price": 3.6
+  },
+  {
+    "name": "Coca-Cola® (25cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Coca-Cola%C2%AE%20%2825cl%29.png",
+    "price": 2.6
+  },
+  {
+    "name": "Coca-Cola® (40cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Coca-Cola%C2%AE%20%2840cl%29.png",
+    "price": 3
+  },
+  {
+    "name": "Coca-Cola® (50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Coca-Cola%C2%AE%20%2850cl%29.png",
+    "price": 3.6
+  },
+  {
+    "name": "Thé fruits rouges",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Th%C3%A9%20fruits%20rouges.png",
+    "price": 2.2
+  },
+  {
+    "name": "King Sundae Vanille",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/King%20Sundae%20Vanille.png",
+    "price": 3.2
+  },
+  {
+    "name": "King Sundae Chocolat",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/King%20Sundae%20Chocolat.png",
+    "price": 3.2
+  },
+  {
+    "name": "King Sundae Caramel",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/King%20Sundae%20Caramel.png",
+    "price": 3.2
+  },
+  {
+    "name": "Chicken Classic",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Chicken%20Classic.png",
+    "price": 3.9
+  },
+  {
+    "name": "Pancakes",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Pancakes.png",
+    "price": 2.5
+  },
+  {
+    "name": "POM’POTES® BIO Pomme",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/POM%E2%80%99POTES%C2%AE%20BIO%20Pomme.png",
+    "price": 1.9
+  },
+  {
+    "name": "Minute Maid Orange 20CL",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Minute%20Maid%20Orange%2020CL.png",
+    "price": 2.3
+  },
+  {
+    "name": "KING FUSION M&M'S®",
+    "image": "https://burgerkingfrance.twic.pics/img/products/9/9b/99b627d2-6d40-4508-8620-bcbe406b741a_",
+    "price": 4.3
+  },
+  {
+    "name": "Coca Cola Cherry® (25cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Coca%20Cola%20Cherry%C2%AE%20%2825cl%29.png",
+    "price": 2.6
+  },
+  {
+    "name": "Coca-Cola Cherry® (40cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Coca-Cola%20Cherry%C2%AE%20%2840cl%29.png",
+    "price": 3
+  },
+  {
+    "name": "Coca-Cola Cherry® (50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Coca-Cola%20Cherry%C2%AE%20%2850cl%29.png",
+    "price": 3.6
+  },
+  {
+    "name": "Fishburger",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Fishburger.png",
+    "price": 2.1
+  },
+  {
+    "name": "Big Fish",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Big%20Fish.png",
+    "price": 6.4
+  },
+  {
+    "name": "Puzzle",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Puzzle.jpg",
+    "price": 2
+  },
+  {
+    "name": "KING FUSION LION®",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/KING%20FUSION%20LION%C2%AE.png",
+    "price": 4.3
+  },
+  {
+    "name": "Creamy Shake Chocolate",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Creamy%20Shake%20Chocolate.png",
+    "price": 3.8
+  },
+  {
+    "name": "Petit Shake Vanille",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Petit%20Shake%20Vanille.png",
+    "price": 2.5
+  },
+  {
+    "name": "Double Cheeseburger",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Double%20Cheeseburger.png",
+    "price": 2.9
+  },
+  {
+    "name": "King Fries Cheddar & Bacon",
+    "image": "https://burgerkingfrance.twic.pics/img/products/6/d9/6d92ab7c-e386-4499-a71e-65cf00acd8af_",
+    "price": 4.3
+  },
+  {
+    "name": "Double Cheese",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Double%20Cheese.png",
+    "price": 3.9
+  },
+  {
+    "name": "Jouet Fille",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Jouet%20Fille.png",
+    "price": 0.75
+  },
+  {
+    "name": "Jouet Garçon",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Jouet%20Gar%C3%A7on.png",
+    "price": 0.75
+  },
+  {
+    "name": "King Fries Cheddar & Crispy Onions",
+    "image": "https://burgerkingfrance.twic.pics/img/products/0/5d/05d3732b-1af4-4809-9769-24f318860fdc_",
+    "price": 4.3
+  },
+  {
+    "name": "Donut Chocolat Noisette.",
+    "image": "https://burgerkingfrance.twic.pics/img/products/b/47/b47a0f8c-181b-4eed-a7b6-a0d933df4cf9_",
+    "price": 3.2
+  },
+  {
+    "name": "Muffin Chocolat Noisette.",
+    "image": "https://burgerkingfrance.twic.pics/img/products/a/06/a06167de-fc69-48f0-95a1-1bb3b63d2243_",
+    "price": 3.1
+  },
+  {
+    "name": "Trio de Beignets",
+    "image": "https://burgerkingfrance.twic.pics/img/products/5/ad/5ad62b21-50d8-4d78-91b4-0c9dfab016cc_",
+    "price": 3
+  },
+  {
+    "name": "Sauce Chili Cheese",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Sauce%20Chili%20Cheese.png",
+    "price": 0.5
+  },
+  {
+    "name": "Creamy Shake Salted Caramel",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Creamy%20Shake%20Salted%20Caramel.png",
+    "price": 3.8
+  },
+  {
+    "name": "Honest Kids Bio Saveur Fruits Exotiques (20cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Honest%20Kids%20Bio%20Saveur%20Fruits%20Exotiques%20%2820cl%29.png",
+    "price": 2.9
+  },
+  {
+    "name": "Thé Earl Grey",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Th%C3%A9%20Earl%20Grey.png",
+    "price": 2.2
+  },
+  {
+    "name": "Master Bacon Grill",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Master%20Bacon%20Grill.png",
+    "price": 11.3
+  },
+  {
+    "name": "Petit Wrap Chicken Cheese Sauce Moutarde",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Petit%20Wrap%20Chicken%20Cheese%20Sauce%20Moutarde.png",
+    "price": 2.5
+  },
+  {
+    "name": "KING FUSION SNICKERS®",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/KING%20FUSION%20SNICKERS%C2%AE.png",
+    "price": 4.3
+  },
+  {
+    "name": "Triple Cheese",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Triple%20Cheese.png",
+    "price": 6.4
+  },
+  {
+    "name": "Sprite® Goût Original sans sucres (50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Sprite%C2%AE%20Go%C3%BBt%20Original%20sans%20sucres%20%2850cl%29.png",
+    "price": 3.6
+  },
+  {
+    "name": "Sprite® Goût Original sans sucres (40cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Sprite%C2%AE%20Go%C3%BBt%20Original%20sans%20sucres%20%2840cl%29.png",
+    "price": 3
+  },
+  {
+    "name": "Sprite® Goût Original sans sucres (25cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Sprite%C2%AE%20Go%C3%BBt%20Original%20sans%20sucres%20%2825cl%29.png",
+    "price": 2.6
+  },
+  {
+    "name": "Fanta® Goût Original sans sucres (50cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Fanta%C2%AE%20Go%C3%BBt%20Original%20sans%20sucres%20%2850cl%29.png",
+    "price": 3.6
+  },
+  {
+    "name": "Fanta® Goût Original sans sucres (40cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Fanta%C2%AE%20Go%C3%BBt%20Original%20sans%20sucres%20%2840cl%29.png",
+    "price": 3
+  },
+  {
+    "name": "Fanta® Goût Original sans sucres (25cl)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Fanta%C2%AE%20Go%C3%BBt%20Original%20sans%20sucres%20%2825cl%29.png",
+    "price": 2.6
+  },
+  {
+    "name": "[KINGDOM] - Wrap Chicken Lousiane",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/%5BKINGDOM%5D%20-%20Wrap%20Chicken%20Lousiane.png",
+    "price": 5.4
+  },
+  {
+    "name": "Wrap Chicken Louisiane",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Wrap%20Chicken%20Louisiane.png",
+    "price": 6.7
+  },
+  {
+    "name": "Petit Wrap Crousty Chèvre Sauce Moutarde",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Petit%20Wrap%20Crousty%20Ch%C3%A8vre%20Sauce%20Moutarde.png",
+    "price": 2.5
+  },
+  {
+    "name": "Petit Wrap Chicken BBQ Bacon",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Petit%20Wrap%20Chicken%20BBQ%20Bacon.png",
+    "price": 2.5
+  },
+  {
+    "name": "KING FUSION au Nutella®",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/KING%20FUSION%20au%20Nutella%C2%AE.png",
+    "price": 4.3
+  },
+  {
+    "name": "Expresso",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Expresso.png",
+    "price": 1.5
+  },
+  {
+    "name": "Double expresso",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Double%20expresso.png",
+    "price": 2.2
+  },
+  {
+    "name": "Cappuccino",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Cappuccino.png",
+    "price": 2.4
+  },
+  {
+    "name": "Café Latté",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Caf%C3%A9%20Latt%C3%A9.png",
+    "price": 2.4
+  },
+  {
+    "name": "Café allongé",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Caf%C3%A9%20allong%C3%A9.png",
+    "price": 1.8
+  },
+  {
+    "name": "Double Cheese",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/Double%20Cheese.png",
+    "price": 3.9
+  },
+  {
+    "name": "Cheeseburger",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062094/RNCP31114/BurgerKing-exam/Images/Cheeseburger.png",
+    "price": 2.9
+  },
+  {
+    "name": "[KINGDOM] - Moyennes frites",
+    "image": "https://burgerkingfrance.twic.pics/img/products/e/ef/eefcae33-babe-4674-8be0-e6846d5cf1cb_",
+    "price": 2.9
+  },
+  {
+    "name": "Café Allongé",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/Caf%C3%A9%20allong%C3%A9.png",
+    "price": 1.7
+  },
+  {
+    "name": "[KINGDOM] - Onion Rings (6)",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062095/RNCP31114/BurgerKing-exam/Images/%5BKINGDOM%5D%20-%20Onion%20Rings%20%286%29.png",
+    "price": 2.5
+  },
+  {
+    "name": "(6) King Nuggets",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062096/RNCP31114/BurgerKing-exam/Images/%286%29%20King%20Nuggets.png",
+    "price": 6.3
+  },
+  {
+    "name": "Chicken Louisiane Steakhouse",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/Chicken%20Louisiane%20Steakhouse.png",
+    "price": 7.5
+  },
+  {
+    "name": "[KINGDOM] - Steakhouse",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/%5BKINGDOM%5D%20-%20Steakhouse.png",
+    "price": 6.9
+  },
+  {
+    "name": "[KINGDOM] - Whopper",
+    "image": "https://res.cloudinary.com/lereacteur-apollo/image/upload/v1700062097/RNCP31114/BurgerKing-exam/Images/%5BKINGDOM%5D%20-%20Whopper.png",
+    "price": 6.4
+  }
+]

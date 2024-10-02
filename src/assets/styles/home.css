@@ -1,0 +1,9 @@
+.home {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home.item {
+  display: flex;
+  width: 300px;
+}
