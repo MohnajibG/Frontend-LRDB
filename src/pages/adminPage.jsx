@@ -32,13 +32,36 @@ const adminPage = () => {
           return (
             <div key={order._id}>
               <h3>Commande #{order.orderNumber}</h3>
-              {/* <p>Date: {new Date(order.createdAt).toLocaleString()}</p> */}
+              <p>Date: {new Date(order.createdAt).toLocaleString()}</p>
               <h4>Détails de la commande:</h4>
               <div>
                 {order.items.map((item, index) => (
-                  <p key={index}>
-                    {item.name} - {item.quantity} x {item.price} €
-                  </p>
+                  <div key={index}>
+                    <p>
+                      {item.etat === false ? (
+                        <div
+                          style={{
+                            backgroundColor: "red",
+                            width: "30px",
+                            height: "30px",
+                            borderRadius: "50%",
+                          }}
+                        ></div>
+                      ) : (
+                        <div
+                          style={{
+                            backgroundColor: "green",
+                            width: "30px",
+                            height: "30px",
+                            borderRadius: "50%",
+                          }}
+                        ></div>
+                      )}
+                    </p>
+                    <p>
+                      {item.name} - {item.quantity} x {item.price} €
+                    </p>
+                  </div>
                 ))}
               </div>
               <p>Total: {order.totalPrice} €</p>

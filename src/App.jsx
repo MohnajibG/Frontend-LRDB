@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Cookies from "js-cookie";
+import { Navigate } from "react-router-dom";
 
 // Style
 import "./App.css";
@@ -21,6 +23,7 @@ import AdminPage from "./pages/adminPage";
 // Pages
 import Home from "./pages/home";
 import Order from "./pages/order";
+import ConsoleAdmin from "./pages/consoleAdmin";
 
 function App() {
   return (
@@ -32,6 +35,18 @@ function App() {
 }
 
 function AppLayout() {
+  const [token, setToken] = useState(Cookies.get("token") || null);
+
+  const handleToken = (token) => {
+    if (token) {
+      Cookies.set("token", token, { expires: 30 });
+      setToken(token);
+    } else {
+      Cookies.remove("token");
+      setToken(null);
+    }
+  };
+
   const location = useLocation();
   const [cart, setCart] = useState([]);
   const [orderNumber, setOrderNumber] = useState(1);
@@ -39,8 +54,9 @@ function AppLayout() {
 
   const handleValidation = () => {
     setOrderNumber(orderNumber + 1);
-    navigate("/order");
+    navigate(`/order/${orderNumber}`);
   };
+
   return (
     <div>
       {location.pathname === "/menu" && (
@@ -60,9 +76,26 @@ function AppLayout() {
             element={<Menu cart={cart} setCart={setCart} />}
           />
           <Route path="/order/:id" element={<Order />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/adminPage" element={<AdminPage />} />
+          <Route
+            path="/login"
+            element={<Login token={token} handleToken={handleToken} />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup token={token} handleToken={handleToken} />}
+          />
+          <Route path="/consoleAdmin" element={<ConsoleAdmin />} />
+
+          <Route
+            path="/adminPage"
+            element={
+              token ? (
+                <AdminPage token={token} handleToken={handleToken} />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
         </Routes>
       </div>
     </div>

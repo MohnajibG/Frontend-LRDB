@@ -52,12 +52,12 @@ const SideBar = ({ cart, setCart }) => {
       // Création de l'objet de la commande
       const orderDetails = {
         items: cart.map((item) => ({
-          etat: false,
+          etat: item.etat,
           name: item.name,
           quantity: item.quantity,
           price: item.price,
         })),
-        totalPrice: totalPrice,
+        totalPrice: totalPrice.toFixed(2),
       };
 
       const response = await axios.post(

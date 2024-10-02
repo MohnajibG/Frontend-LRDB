@@ -34,9 +34,9 @@ const Order = () => {
     </main>
   ) : (
     <main>
-      {/* {order.items.map((item) => (
+      {order.items.map((item) => (
         <div key={item.id}>
-          {!item.etat && (
+          {item.etat ? (
             <div
               style={{
                 backgroundColor: "red",
@@ -45,9 +45,18 @@ const Order = () => {
                 borderRadius: "50%",
               }}
             ></div>
+          ) : (
+            <div
+              style={{
+                backgroundColor: "green",
+                width: "30px",
+                height: "30px",
+                borderRadius: "50%",
+              }}
+            ></div>
           )}
         </div>
-      ))} */}
+      ))}
       <div className="order">
         <h3>
           Commande <span># {order.orderNumber}</span>
