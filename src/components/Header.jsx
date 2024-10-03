@@ -7,17 +7,16 @@ const Header = () => {
   return (
     <header className="header">
       <Link to="/">
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" />®
       </Link>
 
       <Link to="/">
         <div className="header-title">
-          <h1>Le Roi</h1>
-          <h2>Du Burger</h2>
+          <h1>Le Roi Du Burger</h1>
         </div>
       </Link>
       <Link to="/">
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" />®
       </Link>
 
       <div className="icon-header">

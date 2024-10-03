@@ -5,7 +5,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
 
@@ -46,6 +46,10 @@ function AppLayout() {
       setToken(null);
     }
   };
+  useEffect(() => {
+    const savedToken = Cookies.get("token");
+    if (savedToken) setToken(savedToken);
+  }, []);
 
   const location = useLocation();
   const [cart, setCart] = useState([]);

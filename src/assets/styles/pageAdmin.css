@@ -1,0 +1,87 @@
+.admin-page {
+  margin-top: 25vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espace entre les commandes */
+}
+
+.commande {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 10vw;
+  height: 20vw;
+  margin-bottom: 20px;
+  background-color: #3866415b;
+  overflow: scroll;
+  border-radius: 20px;
+  position: relative;
+}
+
+.commande-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.button-admin {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.etat-order {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.header-commande {
+  display: flex;
+  /* flex-direction: column; */
+  padding: 10px 10px;
+
+  background-color: #386641c0;
+  font-size: 12px;
+  gap: 10px;
+  border-radius: 5px;
+}
+.total-commande {
+  padding: 5px 10px;
+  background-color: #386641c0;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.button-check {
+  border: none;
+  padding: 4px;
+  background-color: green;
+  border: black solid 1px;
+  border-radius: 2px;
+}
+
+.button-check:hover {
+  background: rgb(0, 247, 29);
+}
+
+.button-delete {
+  border: none;
+  padding: 4px;
+  background-color: rgb(230, 199, 1);
+  border: black solid 1px;
+  border-radius: 2px;
+}
+.button-delete:hover {
+  background-color: rgb(255, 242, 0);
+}
+.commande h4 {
+  font-weight: bolder;
+  font-size: 16px;
+}

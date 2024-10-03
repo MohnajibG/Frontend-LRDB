@@ -1,6 +1,6 @@
 /* Style de la sidebar */
 .sidebar {
-  padding-top: 10vw;
+  padding: 5vw 2vh;
   background-color: #d62828;
   width: 20vw;
   height: 100%;
@@ -10,17 +10,16 @@
 
 .scroll-container {
   width: 80%;
-  padding: 10px;
-  margin: 15px;
-  margin-top: 12vw;
-  height: auto;
-  max-height: 100%;
-  background-color: #fcedd5f6;
-  overflow-y: scroll;
+  padding: 10px 20px;
+  margin: 15px auto;
+  margin-top: 2vw;
+  max-height: 350px;
+  background-color: #fcedd5;
+  overflow-y: auto;
   z-index: 4;
   gap: 10px;
   border-radius: 10px;
-  padding-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .scroll-containe::-webkit-scrollbar {
@@ -30,12 +29,7 @@
   display: flex;
   justify-content: space-between;
 }
-.button {
-  width: 30px;
-}
-.button:hover {
-  background-color: #bc2929a4;
-}
+
 .cart-controls {
   display: flex;
   align-items: center;
@@ -64,12 +58,13 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.button-x {
+.cart-controls .button-x {
   background-color: black;
   color: #fcedd5f6;
 }
 .total {
+  margin-top: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }

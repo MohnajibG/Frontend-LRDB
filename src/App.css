@@ -15,38 +15,42 @@ a:visited {
   align-items: center;
   background-color: #d62828;
   border-radius: 12px;
-  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
-  box-sizing: border-box;
-  color: #121212;
+}
+
+.button {
   cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
+  border: solid rgb(0, 0, 0);
+  font-family: Roboto;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  transition: 2842ms;
+  width: 200px;
+  box-shadow: rgb(0, 0, 0) 4px 4px 5px 2px;
+  border-radius: 20px;
+  background: rgb(214, 40, 40);
+  --hover-borderc: #f77f00;
+  --hover-bgc: #f77f00;
+  --hover-color: #000000;
+  --hover-borderSize: 1px;
+  --hover-width: 200px;
+  display: flex;
   justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
-  white-space: wrap;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: text;
-  touch-action: manipulation;
+  align-items: center;
+  flex-direction: row;
 }
 
 .button:hover {
-  box-shadow: #000000 0 0 0 3px, transparent 0 0 0 0;
+  color: rgb(0, 0, 0);
+  width: 200px;
+  background: rgb(247, 127, 0) none repeat scroll 0% 0% / auto padding-box
+    border-box;
+  border-color: rgb(5, 3, 0);
+  border-width: 1px;
+  border-style: solid;
 }
 
 main {
   margin-top: 10vw;
   margin-left: 20vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
