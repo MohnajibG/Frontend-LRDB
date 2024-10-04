@@ -2,37 +2,38 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-// Styles
 import "../assets/styles/order.css";
 
 const Order = () => {
   const { id } = useParams();
-
   const [order, setOrder] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchDataOrder = async () => {
+    try {
+      const response = await axios.get(
+        `site--backend-lrdb--dnxhn8mdblq5.code.run/order/${id}`
+      );
+      setOrder(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log("Erreur lors de la récupération des commandes ===>", error);
+      setIsLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchDataOrder = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3000/order/${id}`);
-
-        setOrder(response.data);
-        console.log(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log("Erreur lors de la récupération des commandes ===>", error);
-        setIsLoading(false);
-      }
-    };
-
     fetchDataOrder();
+
+    // Re-fetch every 5 seconds
+    const intervalId = setInterval(fetchDataOrder, 5000);
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
   }, [id]);
 
-  if (isLoading) {
-    return <p>Chargement de la commande...</p>;
-  }
-
-  return (
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
     <main className="order">
       <div className="header-order">
         <h3>Commande #{order.orderNumber}</h3>

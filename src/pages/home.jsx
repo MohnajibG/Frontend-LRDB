@@ -16,7 +16,7 @@ const Home = () => {
         />
         <div class="content-overlay">
           <h1>Bienvenue chez Le Roi du Burger !!!</h1>
-          <p>pour commander</p>
+          <p>pour passer votre commander</p>
           <button
             class="button-home"
             onClick={() => {

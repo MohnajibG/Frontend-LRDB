@@ -15,7 +15,7 @@ const AdminPage = ({ token }) => {
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/order/${orderId}`,
+        `site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ const AdminPage = ({ token }) => {
   const handleChangeStateOrder = async (orderId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/order/${orderId}`,
+        `site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         { etat: true },
         {
           headers: {
@@ -53,22 +53,35 @@ const AdminPage = ({ token }) => {
     }
   };
 
-  useEffect(() => {
-    const fetchDataOrder = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/orders", {
+  const fetchDataOrder = async () => {
+    try {
+      const response = await axios.get(
+        "site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
+        {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        });
-        setDataOrder(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log("Erreur lors de la récupération des commandes ===>", error);
-        setIsLoading(false);
-      }
-    };
-    fetchDataOrder();
+        }
+      );
+      setDataOrder(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log("Erreur lors de la récupération des commandes ===>", error);
+      setIsLoading(false);
+    }
+  };
+
+  // Utilisation du useEffect pour charger les données de commande et mettre à jour régulièrement
+  useEffect(() => {
+    fetchDataOrder(); // Charger une première fois les données
+
+    // Mettre à jour les commandes toutes les 3 secondes
+    const intervalId = setInterval(() => {
+      fetchDataOrder();
+    }, 3000);
+
+    // Nettoyer l'intervalle lors du démontage du composant
+    return () => clearInterval(intervalId);
   }, []);
 
   return isLoading ? (

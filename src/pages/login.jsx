@@ -22,10 +22,13 @@ const Login = ({ handleToken }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:3000/user/login", {
-        username,
-        code,
-      });
+      const response = await axios.post(
+        "site--backend-lrdb--dnxhn8mdblq5.code.run/user/login",
+        {
+          username,
+          code,
+        }
+      );
 
       handleToken(response.data.token, response.data.username);
       navigate("/adminPage");
