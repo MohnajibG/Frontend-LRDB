@@ -15,7 +15,7 @@ const AdminPage = ({ token }) => {
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
-        `site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
+        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -34,7 +34,7 @@ const AdminPage = ({ token }) => {
   const handleChangeStateOrder = async (orderId) => {
     try {
       const response = await axios.put(
-        `site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
+        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         { etat: true },
         {
           headers: {
@@ -56,7 +56,7 @@ const AdminPage = ({ token }) => {
   const fetchDataOrder = async () => {
     try {
       const response = await axios.get(
-        "site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
+        "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
         {
           headers: {
             Authorization: `Bearer ${token}`,

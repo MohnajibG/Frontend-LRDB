@@ -22,7 +22,7 @@ const Signup = ({ handleToken }) => {
 
     try {
       const response = await axios.post(
-        "site--backend-lrdb--dnxhn8mdblq5.code.run/user/signup",
+        "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/signup",
         {
           username,
           code,
