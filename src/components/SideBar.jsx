@@ -65,7 +65,7 @@ const SideBar = ({ cart, setCart }) => {
         orderDetails
       );
       navigate(`/order/${response.data.id}`);
-      // console.log("Commande envoyée avec ID ==>", response.data.id);
+      console.log("Commande envoyée avec ID ==>", response.data.id);
       setCart([]);
     } catch (error) {
       console.error("Erreur lors de l'envoi de la commande :", error);
