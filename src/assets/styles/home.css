@@ -1,9 +1,75 @@
-.home {
+/* Container de l'image avec le contenu par dessus */
+.image-container {
+  margin-left: -20vw;
+  position: relative;
+  width: 100vw;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.home.item {
-  display: flex;
-  width: 300px;
+/* L'image de fond */
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Appliquer un dégradé par-dessus l'image */
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 127, 0, 1),
+    rgba(247, 127, 0, 0) 50%
+  );
+  z-index: 1;
+}
+
+/* La div avec le contenu (texte et bouton) */
+.content-overlay {
+  position: absolute;
+  top: 46%;
+  left: 54%;
+  transform: translate(-60%, -40%);
+  text-align: center;
+  color: white;
+  z-index: 2; /* Placer le contenu au-dessus de l'image */
+  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  padding: 20px 40px;
+  border-radius: 15px;
+}
+
+/* Titre de la page */
+.content-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+/* Paragraphe */
+.content-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+/* Bouton de commande */
+.button-home {
+  background-color: #d90429;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-home:hover {
+  background-color: #ff0a54;
 }

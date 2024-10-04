@@ -6,7 +6,7 @@ import { FaCheck } from "react-icons/fa6";
 // Styles
 import "../assets/styles/pageAdmin.css";
 
-const AdminPage = () => {
+const AdminPage = ({ token }) => {
   const [dataOrder, setDataOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [deleteData, setDeleteData] = useState("");
@@ -15,7 +15,12 @@ const AdminPage = () => {
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/order/${orderId}`
+        `http://localhost:3000/order/${orderId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       setDeleteData(response.data);
       setDataOrder((prevOrders) =>
@@ -30,7 +35,12 @@ const AdminPage = () => {
     try {
       const response = await axios.put(
         `http://localhost:3000/order/${orderId}`,
-        { etat: true }
+        { etat: true },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
       setChangeState(response.data);
       setDataOrder((prevOrders) =>
@@ -46,7 +56,11 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchDataOrder = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/orders");
+        const response = await axios.get("http://localhost:3000/orders", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         setDataOrder(response.data);
         setIsLoading(false);
       } catch (error) {

@@ -30,12 +30,7 @@ const Login = ({ handleToken }) => {
       handleToken(response.data.token, response.data.username);
       navigate("/adminPage");
     } catch (error) {
-      console.log(error);
-      if (error.response?.data.message === "Missing parameters") {
-        setErrorMessage("Veuillez remplir tous les champs");
-      } else {
-        setErrorMessage("Veuillez réessayer");
-      }
+      setErrorMessage("Veuillez réessayer");
       setIsLoading(false);
     }
   };
