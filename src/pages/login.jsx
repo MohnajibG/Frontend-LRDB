@@ -31,7 +31,11 @@ const Login = ({ handleToken }) => {
       );
 
       handleToken(response.data.token, response.data.username);
-      navigate("/adminPage");
+      if (response.data.isAdmin) {
+        navigate("/orders");
+      } else {
+        navigate("/menu");
+      }
     } catch (error) {
       if (error.response?.data?.message === "Missing parameters") {
         setErrorMessage("Veuillez remplir tous les champs");
