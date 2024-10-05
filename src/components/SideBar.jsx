@@ -61,7 +61,7 @@ const SideBar = ({ cart, setCart }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/order",
+        "https://site--backend-lrdb--dnxhn8mdblq5.code.run/order",
         orderDetails
       );
       navigate(`/order/${response.data.id}`);

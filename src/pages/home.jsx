@@ -7,18 +7,18 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <main class="home">
-      <div class="image-container">
+    <main className="home">
+      <div className="image-container">
         <img
           src={background}
           alt="Burger Background"
-          class="background-image"
+          className="background-image"
         />
-        <div class="content-overlay">
+        <div className="content-overlay">
           <h1>Bienvenue chez Le Roi du Burger !!!</h1>
-          <p>pour passer votre commander</p>
+          <p>Pour passer votre commande</p>
           <button
-            class="button-home"
+            className="button-home"
             onClick={() => {
               navigate("/menu");
             }}
