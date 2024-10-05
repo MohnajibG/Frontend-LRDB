@@ -77,8 +77,7 @@
   .scroll-container {
     width: 60%;
     padding: 5px 10px;
-    margin: 5px auto;
-    margin-top: 2vw;
+    margin-top: 10vw;
     /* max-height: 350px; */
   }
 
@@ -114,18 +113,29 @@
     font-size: 16px;
   }
   .cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    flex-direction: column;
   }
-  .cart-controls .button-x {
-    background-color: black;
-    color: #fcedd5f6;
+  .cart-item p {
+    font-size: 10px;
+  }
+  .cart-controls button {
+    height: 20px;
+    width: 15px;
+    padding: 2px;
   }
   .total {
     margin-top: 50px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
+  }
+  .total .button {
+    margin-top: 5;
+    width: 80%;
+    height: 20px;
+  }
+  .valider {
+    font-size: 12px;
   }
 }

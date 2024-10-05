@@ -1,18 +1,20 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 
 const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
-  const [code, setCode] = useState("");
-  const [codeVisible, setCodeVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
 
-  const toggleCodeVisibility = () => {
-    setCodeVisible((avant) => !avant);
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prev) => !prev);
   };
 
   const handleSubmit = async (event) => {
@@ -25,60 +27,79 @@ const Signup = ({ handleToken }) => {
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/signup",
         {
           username,
-          code,
+          email,
+          password,
         }
       );
+
+      // Envoie le token reçu pour l'authentification après inscription
       handleToken(response.data.token, response.data.username);
-      navigate("/login");
+      navigate("/adminPage");
     } catch (error) {
-      console.log(error.response);
-      setErrorMessage("Veuillez réessayer");
+      if (error.response.data.message === "Missing parameters") {
+        setErrorMessage("Veuillez remplir tous les champs");
+      } else if (error.response.data.message === "Email already in database") {
+        setErrorMessage("Cet email est déjà enregistré.");
+      } else if (
+        error.response.data.message ===
+        "Password must be at least 8 characters long"
+      ) {
+        setErrorMessage("Le mot de passe doit contenir au moins 8 caractères.");
+      } else {
+        setErrorMessage("Une erreur s'est produite, veuillez réessayer.");
+      }
       setIsLoading(false);
     }
   };
 
   return (
-    <main>
+    <main className="main-login">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <input
-          className="inpt-signup"
+          className="inpt-login"
           type="text"
           placeholder="Nom d'utilisateur"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
+          required
         />
-
-        <div className="inpt-signup-pw ">
+        <input
+          className="inpt-login"
+          type="email"
+          placeholder="E-mail"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
+        />
+        <div className="inpt-login-pw">
           <input
             className="inpt-login"
-            type={codeVisible ? "number" : "password"}
-            value={code}
-            onChange={(event) => setCode(event.target.value)}
-            placeholder="Votre code utilisateur de 6 chiffres"
-            maxLength="6"
+            type={passwordVisible ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Mot de passe"
             required
           />
           <button
-            className="btn-signup"
+            className="btn-eye"
             type="button"
-            onClick={toggleCodeVisibility}
+            onClick={togglePasswordVisibility}
             style={{ border: "none", background: "none", cursor: "pointer" }}
           >
-            {codeVisible ? <FaEyeSlash /> : <FaEye />}
+            {passwordVisible ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
-
         <button
-          className="btn-signup"
+          className="btn-login"
           type="submit"
-          disabled={isLoading || !username || !code}
+          disabled={isLoading || !username || !email || !password}
         >
           {isLoading ? "Inscription..." : "Sign Up"}
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/login">
-          <p className="p-signup">Tu as déjà un compte ? Connecte-toi!</p>
+          <p className="p-login">Tu as déjà un compte ? Connecte-toi!</p>
         </Link>
       </form>
     </main>

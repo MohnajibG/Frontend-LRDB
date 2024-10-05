@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 
 const Login = ({ handleToken }) => {
-  const [username, setUsername] = useState("");
-  const [code, setCode] = useState("");
-  const [codeVisible, setCodeVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  const toggleCodeVisibility = () => {
-    setCodeVisible((avant) => !avant);
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prev) => !prev);
   };
 
   const handleSubmit = async (event) => {
@@ -25,15 +25,19 @@ const Login = ({ handleToken }) => {
       const response = await axios.post(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/login",
         {
-          username,
-          code,
+          email,
+          password,
         }
       );
 
       handleToken(response.data.token, response.data.username);
       navigate("/adminPage");
     } catch (error) {
-      setErrorMessage("Veuillez réessayer");
+      if (error.response?.data?.message === "Missing parameters") {
+        setErrorMessage("Veuillez remplir tous les champs");
+      } else {
+        setErrorMessage("Veuillez réessayer");
+      }
       setIsLoading(false);
     }
   };
@@ -44,39 +48,41 @@ const Login = ({ handleToken }) => {
       <form onSubmit={handleSubmit}>
         <input
           className="inpt-login"
-          type="text"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          type="email"
+          placeholder="E-mail"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
           required
         />
         <div className="inpt-login-pw">
           <input
             className="inpt-login"
-            type={codeVisible ? "number" : "password"}
-            value={code}
-            onChange={(event) => setCode(event.target.value)}
-            placeholder="Votre code utilisateur de 6 chiffres"
-            maxLength="6"
+            type={passwordVisible ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Mot de passe"
             required
           />
           <button
             className="btn-eye"
             type="button"
-            onClick={toggleCodeVisibility}
-            style={{ border: "none", background: "none" }}
+            onClick={togglePasswordVisibility}
+            style={{ border: "none", background: "none", cursor: "pointer" }}
           >
-            {codeVisible ? <FaEyeSlash /> : <FaEye />}
+            {passwordVisible ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
         <button
           className="btn-login"
           type="submit"
-          disabled={isLoading || !username || !code}
+          disabled={isLoading || !email || !password}
         >
           {isLoading ? "Connexion..." : "Log In"}
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        <Link to="/signup">
+          <p className="p-login">Tu n'as pas un compte ? Inscris-toi!</p>
+        </Link>
       </form>
     </main>
   );

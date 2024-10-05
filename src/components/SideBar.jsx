@@ -105,7 +105,7 @@ const SideBar = ({ cart, setCart }) => {
             className="button"
             aria-label="Valider la commande"
           >
-            VALIDER
+            <span className="valider">VALIDER</span>
           </button>
         )}
       </div>
