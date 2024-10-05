@@ -4,7 +4,6 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
@@ -36,6 +35,8 @@ function App() {
 
 function AppLayout() {
   const [token, setToken] = useState(Cookies.get("token") || null);
+  const [cart, setCart] = useState([]);
+  const [orderNumber, setOrderNumber] = useState(1);
 
   const handleToken = (token) => {
     if (token) {
@@ -46,20 +47,18 @@ function AppLayout() {
       setToken(null);
     }
   };
+
   useEffect(() => {
     const savedToken = Cookies.get("token");
     if (savedToken) setToken(savedToken);
   }, []);
 
-  const location = useLocation();
-  const [cart, setCart] = useState([]);
-  const [orderNumber, setOrderNumber] = useState(1);
-  const navigate = useNavigate();
-
   const handleValidation = () => {
     setOrderNumber(orderNumber + 1);
-    navigate(`/order/${orderNumber}`);
+    // Logique pour la validation de commande
   };
+
+  const location = useLocation();
 
   return (
     <div>
@@ -80,16 +79,12 @@ function AppLayout() {
             element={<Menu cart={cart} setCart={setCart} />}
           />
           <Route path="/order/:id" element={<Order />} />
-          <Route
-            path="/login"
-            element={<Login token={token} handleToken={handleToken} />}
-          />
+          <Route path="/login" element={<Login handleToken={handleToken} />} />
           <Route
             path="/signup"
-            element={<Signup token={token} handleToken={handleToken} />}
+            element={<Signup handleToken={handleToken} />}
           />
           <Route path="/consoleAdmin" element={<ConsoleAdmin />} />
-
           <Route
             path="/adminPage"
             element={
