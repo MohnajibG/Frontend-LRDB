@@ -1,4 +1,3 @@
-/* Style de la sidebar */
 .sidebar {
   padding: 5vw 2vh;
   background-color: #d62828;
@@ -67,4 +66,66 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 932px) {
+  /* Style de la sidebar */
+  .sidebar {
+    padding: 3vw 1vh;
+    width: 22vw;
+  }
+
+  .scroll-container {
+    width: 60%;
+    padding: 5px 10px;
+    margin: 5px auto;
+    margin-top: 2vw;
+    /* max-height: 350px; */
+  }
+
+  .scroll-containe::-webkit-scrollbar {
+    display: none;
+  }
+  .sidebar-scroll {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .cart-controls button {
+    background-color: #d62828;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .cart-controls button:hover {
+    background-color: #961a1a;
+  }
+
+  .sidebar h2 {
+    padding-left: 10px;
+    font-size: 16px;
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .cart-controls .button-x {
+    background-color: black;
+    color: #fcedd5f6;
+  }
+  .total {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

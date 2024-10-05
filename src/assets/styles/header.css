@@ -42,7 +42,7 @@ header div {
 /* ===================RESPONSIVE================= */
 /* ===================RESPONSIVE================= */
 /* ===================RESPONSIVE================= */
-@media (max-width: 800px) {
+@media (max-width: 932px) {
   header {
     height: 20vw;
     z-index: 100;

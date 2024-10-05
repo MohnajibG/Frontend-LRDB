@@ -35,7 +35,7 @@ const Menu = ({ cart, setCart }) => {
           >
             <p className="item-name">{item.name}</p>
             <img
-              src={item.image?.endsWith(".png") ? item.image : logo}
+              src={item.image.endsWith(".png") ? item.image : logo}
               alt={item.name}
             />
             <p className="item-price">{item.price.toFixed(2)} €</p>

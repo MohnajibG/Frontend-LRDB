@@ -3,20 +3,20 @@
   margin-left: -20vw;
   position: relative;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
+  overflow: hidden;
 }
 
-/* L'image de fond */
 .background-image {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
 }
 
-/* Appliquer un dégradé par-dessus l'image */
 .image-container::before {
   content: "";
   position: absolute;
@@ -32,7 +32,6 @@
   z-index: 1;
 }
 
-/* La div avec le contenu (texte et bouton) */
 .content-overlay {
   position: absolute;
   top: 46%;
@@ -40,8 +39,8 @@
   transform: translate(-60%, -40%);
   text-align: center;
   color: white;
-  z-index: 2; /* Placer le contenu au-dessus de l'image */
-  background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px 40px;
   border-radius: 15px;
 }
@@ -76,12 +75,11 @@
 @media (max-width: 932px) {
   .image-container {
     width: 100vw;
-    height: 100vh; /* Assure que l'image occupe 100% de l'écran */
+    height: 100vh;
   }
 
-  /* La div avec le contenu (texte et bouton) */
   .content-overlay {
-    padding: 15px 30px; /* Ajustement du padding pour mobile */
-    font-size: 1rem;
+    padding: 15px 30px;
+    font-size: 18px;
   }
 }
