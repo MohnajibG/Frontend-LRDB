@@ -32,7 +32,7 @@ const Login = ({ handleToken }) => {
 
       handleToken(response.data.token, response.data.username);
       if (response.data.isAdmin) {
-        navigate("/orders");
+        navigate("/adminPage");
       } else {
         navigate("/menu");
       }
