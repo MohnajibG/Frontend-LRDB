@@ -15,7 +15,7 @@ const AdminPage = ({ token }) => {
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
-        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
+        `http://localhost:3000/order/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -55,14 +55,11 @@ const AdminPage = ({ token }) => {
 
   const fetchDataOrder = async () => {
     try {
-      const response = await axios.get(
-        "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get("http://localhost:3000/orders", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setDataOrder(response.data);
       setIsLoading(false);
     } catch (error) {

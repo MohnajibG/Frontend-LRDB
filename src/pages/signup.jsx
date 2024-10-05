@@ -21,13 +21,10 @@ const Signup = ({ handleToken }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(
-        "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/signup",
-        {
-          username,
-          code,
-        }
-      );
+      const response = await axios.post("http://localhost:3000/user/signup", {
+        username,
+        code,
+      });
       handleToken(response.data.token, response.data.username);
       navigate("/login");
     } catch (error) {

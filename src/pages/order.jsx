@@ -11,9 +11,7 @@ const Order = () => {
 
   const fetchDataOrder = async () => {
     try {
-      const response = await axios.get(
-        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${id}`
-      );
+      const response = await axios.get(`http://localhost:3000/order/${id}`);
       setOrder(response.data);
       setIsLoading(false);
     } catch (error) {
