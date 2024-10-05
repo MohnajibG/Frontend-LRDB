@@ -34,7 +34,7 @@ const AdminPage = ({ token }) => {
   const handleChangeStateOrder = async (orderId) => {
     try {
       const response = await axios.put(
-        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
+        `http://localhost:3000/order/${orderId}`,
         { etat: true },
         {
           headers: {
