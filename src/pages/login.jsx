@@ -31,7 +31,7 @@ const Login = ({ handleToken }) => {
       );
 
       handleToken(response.data.token, response.data.username);
-      if (response.data.isAdmin) {
+      if (response.data.isAdmin === response.data.token) {
         navigate("/adminPage");
       } else {
         navigate("/menu");
