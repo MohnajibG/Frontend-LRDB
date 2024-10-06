@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
@@ -6,15 +7,25 @@ import { FaCheck } from "react-icons/fa6";
 // Styles
 import "../assets/styles/pageAdmin.css";
 
-const AdminPage = ({ token }) => {
+const AdminPage = ({ token, isAdmin }) => {
   const [dataOrder, setDataOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [deleteData, setDeleteData] = useState("");
-  const [changeState, setChangeState] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAdmin) {
+      // Redirige l'utilisateur s'il n'est pas admin
+      navigate("/menu");
+    }
+  }, [isAdmin, navigate]);
 
   const handleDelete = async (orderId) => {
+    setIsLoading(true);
+    setErrorMessage("");
     try {
-      const response = await axios.delete(
+      await axios.delete(
         `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         {
           headers: {
@@ -22,18 +33,22 @@ const AdminPage = ({ token }) => {
           },
         }
       );
-      setDeleteData(response.data);
       setDataOrder((prevOrders) =>
         prevOrders.filter((order) => order._id !== orderId)
       );
     } catch (error) {
       console.log("Erreur lors de la suppression");
+      setErrorMessage("Impossible de supprimer la commande.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleChangeStateOrder = async (orderId) => {
+    setIsLoading(true);
+    setErrorMessage("");
     try {
-      const response = await axios.put(
+      await axios.put(
         `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         { etat: true },
         {
@@ -42,7 +57,6 @@ const AdminPage = ({ token }) => {
           },
         }
       );
-      setChangeState(response.data);
       setDataOrder((prevOrders) =>
         prevOrders.map((order) =>
           order._id === orderId ? { ...order, etat: true } : order
@@ -50,10 +64,14 @@ const AdminPage = ({ token }) => {
       );
     } catch (error) {
       console.log("Erreur lors du changement de statut");
+      setErrorMessage("Impossible de changer le statut de la commande.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const fetchDataOrder = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
@@ -64,25 +82,23 @@ const AdminPage = ({ token }) => {
         }
       );
       setDataOrder(response.data);
-      setIsLoading(false);
     } catch (error) {
       console.log("Erreur lors de la récupération des commandes ===>", error);
+      setErrorMessage("Erreur lors de la récupération des commandes.");
+    } finally {
       setIsLoading(false);
     }
   };
 
-  // Utilisation du useEffect pour charger les données de commande et mettre à jour régulièrement
   useEffect(() => {
-    fetchDataOrder(); // Charger une première fois les données
-
-    // Mettre à jour les commandes toutes les 3 secondes
-    const intervalId = setInterval(() => {
+    if (isAdmin) {
       fetchDataOrder();
-    }, 3000);
-
-    // Nettoyer l'intervalle lors du démontage du composant
-    return () => clearInterval(intervalId);
-  }, []);
+      const intervalId = setInterval(() => {
+        fetchDataOrder();
+      }, 3000);
+      return () => clearInterval(intervalId);
+    }
+  }, [isAdmin]);
 
   return isLoading ? (
     <div>Loading...</div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
-import Cookies from "js-cookie"; // Assurez-vous d'importer Cookies
+import Cookies from "js-cookie";
 
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
@@ -17,8 +17,8 @@ const Login = ({ handleToken }) => {
     setPasswordVisible((prev) => !prev);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
 
@@ -26,27 +26,25 @@ const Login = ({ handleToken }) => {
       const response = await axios.post(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/login",
         {
-          email,
-          password,
+          email: email,
+          password: password,
         }
       );
-      console.log("Réponse complète: ", response.data);
-      Cookies.set("token", response.data.token, { expires: 30 });
-      console.log("isAdmin ==>", response.data.isAdmin);
-      handleToken(response.data.token);
-      if (response.data.isAdmin) {
-        navigate("/adminPage");
-      } else {
-        navigate("/menu");
-      }
+
+      console.log(response.data);
+
+      // Stocker le token dans les cookies
+      Cookies.set("token", response.data.token, { expires: 7 });
+
+      // Redirection en fonction de isAdmin
+      navigate(response.data.isAdmin ? "/adminPage" : "/menu");
     } catch (error) {
-      if (error.response?.data?.message === "Missing parameters") {
-        setErrorMessage("Veuillez remplir tous les champs");
-      } else if (error.response?.data?.message === "Invalid credentials") {
-        setErrorMessage("E-mail ou mot de passe incorrect.");
-      } else {
-        setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
-      }
+      setErrorMessage(
+        error.response
+          ? error.response.data.message
+          : "Une erreur s'est produite"
+      );
+    } finally {
       setIsLoading(false);
     }
   };
