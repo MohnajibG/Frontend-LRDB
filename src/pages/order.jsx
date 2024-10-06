@@ -40,6 +40,7 @@ const Order = () => {
         <p>{new Date(order.createdAt).toLocaleString()}</p>
         {order.etat ? (
           <div
+            className="red"
             style={{
               backgroundColor: "green",
               width: "30px",
@@ -49,6 +50,7 @@ const Order = () => {
           ></div>
         ) : (
           <div
+            className="green"
             style={{
               backgroundColor: "red",
               width: "30px",
@@ -77,7 +79,6 @@ const Order = () => {
         )}
       </div>
       <p className="order-total">Total: {order.totalPrice?.toFixed(2)} €</p>
-      <h1>Merci pour votre commande !</h1>
       <p>Merci de vous diriger au comptoir pour récupérer votre commande.</p>
       <p>Bon appétit !</p>
     </main>

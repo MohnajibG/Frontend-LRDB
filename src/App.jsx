@@ -87,13 +87,7 @@ function AppLayout() {
           <Route path="/consoleAdmin" element={<ConsoleAdmin />} />
           <Route
             path="/adminPage"
-            element={
-              token ? (
-                <AdminPage token={token} handleToken={handleToken} />
-              ) : (
-                <Navigate to="/login" />
-              )
-            }
+            element={<AdminPage token={token} handleToken={handleToken} />}
           />
         </Routes>
       </div>

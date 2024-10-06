@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
+import Cookies from "js-cookie"; // Assurez-vous d'importer Cookies
 
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
@@ -29,8 +30,9 @@ const Login = ({ handleToken }) => {
           password,
         }
       );
+      console.log("Réponse complète: ", response.data);
       Cookies.set("token", response.data.token, { expires: 30 });
-
+      console.log("isAdmin ==>", response.data.isAdmin);
       handleToken(response.data.token);
       if (response.data.isAdmin) {
         navigate("/adminPage");
@@ -40,8 +42,10 @@ const Login = ({ handleToken }) => {
     } catch (error) {
       if (error.response?.data?.message === "Missing parameters") {
         setErrorMessage("Veuillez remplir tous les champs");
+      } else if (error.response?.data?.message === "Invalid credentials") {
+        setErrorMessage("E-mail ou mot de passe incorrect.");
       } else {
-        setErrorMessage("Veuillez réessayer");
+        setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
       }
       setIsLoading(false);
     }

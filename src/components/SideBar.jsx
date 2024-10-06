@@ -6,12 +6,6 @@ const SideBar = ({ cart, setCart }) => {
   const location = useLocation();
 
   const navigate = useNavigate();
-  if (
-    location.pathname === "/order" ||
-    location.pathname.startsWith("/order/")
-  ) {
-    return null;
-  }
 
   const handleIncrease = (item) => {
     const updatedCart = cart.map((cartItem) =>

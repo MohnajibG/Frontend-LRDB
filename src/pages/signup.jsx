@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Signup = ({ handleToken }) => {
   const [username, setUsername] = useState("");
@@ -98,7 +99,7 @@ const Signup = ({ handleToken }) => {
         >
           {isLoading ? "Inscription..." : "Sign Up"}
         </button>
-        {errorMessage && <p style={{ color: "red" }}>{setErrorMessage}</p>}
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/login">
           <p className="p-login">Tu as déjà un compte ? Connecte-toi!</p>
         </Link>
