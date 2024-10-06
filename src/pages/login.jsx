@@ -17,8 +17,8 @@ const Login = ({ handleToken }) => {
     setPasswordVisible((prev) => !prev);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
 
@@ -26,39 +26,29 @@ const Login = ({ handleToken }) => {
       const response = await axios.post(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/login",
         {
-          email: email,
-          password: password,
+          email,
+          password,
         }
       );
 
-      console.log(response.data);
+      Cookies.set("token", response.data.token, { expires: 30 });
 
-      // Stocker le token dans les cookies
-      Cookies.set("token", response.data.token, { expires: 7 });
-
-      // Redirection en fonction de isAdmin
-      if (response.data.isAdmin) {
-        // Passe isAdmin à AdminPage
-        navigate("/adminPage", {
-          state: { isAdmin: true },
-        });
-      } else {
-        navigate("/menu");
-      }
+      // Envoie le token reçu pour l'authentification après connexion
+      handleToken(response.data.token);
+      navigate("/"); // Redirection vers la page d'accueil après connexion
     } catch (error) {
-      setErrorMessage(
-        error.response
-          ? error.response.data.message
-          : "Une erreur s'est produite"
-      );
-    } finally {
+      if (error.response && error.response.data.message) {
+        setErrorMessage("Identifiants incorrects.");
+      } else {
+        setErrorMessage("Une erreur s'est produite, veuillez réessayer.");
+      }
       setIsLoading(false);
     }
   };
 
   return (
     <main className="main-login">
-      <h1>Log In</h1>
+      <h1>Se connecter</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="inpt-login"
@@ -91,11 +81,11 @@ const Login = ({ handleToken }) => {
           type="submit"
           disabled={isLoading || !email || !password}
         >
-          {isLoading ? "Connexion..." : "Log In"}
+          {isLoading ? "Connexion..." : "Se connecter"}
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/signup">
-          <p className="p-login">Tu n'as pas un compte ? Inscris-toi!</p>
+          <p className="p-login">Pas encore de compte ? Inscris-toi!</p>
         </Link>
       </form>
     </main>

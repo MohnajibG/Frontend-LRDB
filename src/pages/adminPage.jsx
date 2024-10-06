@@ -17,7 +17,7 @@ const AdminPage = ({ token }) => {
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/order/${orderId}`,
+        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ const AdminPage = ({ token }) => {
   const handleChangeStateOrder = async (orderId) => {
     try {
       const response = await axios.put(
-        `http://localhost:3000/order/${orderId}`,
+        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         { etat: true },
         {
           headers: {
@@ -58,17 +58,20 @@ const AdminPage = ({ token }) => {
   useEffect(() => {
     const fetchDataOrder = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/orders", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setDataOrder(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log("Erreur lors de la récupération des commandes ===>", error);
         if (error.response.data.message === "Unauthorized") {
-          navigate("/fidelite");
+          navigate("/home");
         }
         setIsLoading(false);
       }
@@ -78,6 +81,10 @@ const AdminPage = ({ token }) => {
 
   return isLoading ? (
     <div>Loading...</div>
+  ) : dataOrder.length === 0 ? (
+    <div className="admin-page">
+      <h1>Aucune commande en cours de préparation</h1>
+    </div>
   ) : (
     <main className="admin-page">
       {dataOrder.map((order) => (
