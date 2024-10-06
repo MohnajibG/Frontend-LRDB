@@ -4,6 +4,8 @@ import axios from "axios";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 
+import { useLocation } from "react-router-dom";
+
 // Styles
 import "../assets/styles/pageAdmin.css";
 
@@ -11,6 +13,8 @@ const AdminPage = ({ token, isAdmin }) => {
   const [dataOrder, setDataOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
+  const location = useLocation();
+  const { token, isAdmin } = location.state || {};
 
   const navigate = useNavigate();
 

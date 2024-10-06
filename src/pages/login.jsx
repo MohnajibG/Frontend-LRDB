@@ -37,7 +37,14 @@ const Login = ({ handleToken }) => {
       Cookies.set("token", response.data.token, { expires: 7 });
 
       // Redirection en fonction de isAdmin
-      navigate(response.data.isAdmin ? "/adminPage" : "/menu");
+      if (response.data.isAdmin) {
+        // Passe isAdmin à AdminPage
+        navigate("/adminPage", {
+          state: { token: response.data.token, isAdmin: true },
+        });
+      } else {
+        navigate("/menu");
+      }
     } catch (error) {
       setErrorMessage(
         error.response
