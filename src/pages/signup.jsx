@@ -31,10 +31,11 @@ const Signup = ({ handleToken }) => {
           password,
         }
       );
+      Cookies.set("token", response.data.token, { expires: 30 });
 
       // Envoie le token reçu pour l'authentification après inscription
-      handleToken(response.data.token, response.data.username);
-      navigate("/adminPage");
+      handleToken(response.data.token);
+      navigate("/login");
     } catch (error) {
       if (error.response.data.message === "Missing parameters") {
         setErrorMessage("Veuillez remplir tous les champs");
@@ -97,7 +98,7 @@ const Signup = ({ handleToken }) => {
         >
           {isLoading ? "Inscription..." : "Sign Up"}
         </button>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        {errorMessage && <p style={{ color: "red" }}>{setErrorMessage}</p>}
         <Link to="/login">
           <p className="p-login">Tu as déjà un compte ? Connecte-toi!</p>
         </Link>

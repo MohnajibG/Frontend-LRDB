@@ -34,7 +34,7 @@ function App() {
 }
 
 function AppLayout() {
-  const [token, setToken] = useState(Cookies.get("token") || null);
+  const [token, setToken] = useState(Cookies.get("token"));
   const [cart, setCart] = useState([]);
   const [orderNumber, setOrderNumber] = useState(1);
 

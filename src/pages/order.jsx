@@ -58,7 +58,6 @@ const Order = () => {
           ></div>
         )}
       </div>
-
       <div className="order-details">
         <h4>Détails de la commande:</h4>
         {order.items && order.items.length > 0 ? (
@@ -78,6 +77,9 @@ const Order = () => {
         )}
       </div>
       <p className="order-total">Total: {order.totalPrice?.toFixed(2)} €</p>
+      <h1>Merci pour votre commande !</h1>
+      <p>Merci de vous diriger au comptoir pour récupérer votre commande.</p>
+      <p>Bon appétit !</p>
     </main>
   );
 };

@@ -29,9 +29,10 @@ const Login = ({ handleToken }) => {
           password,
         }
       );
+      Cookies.set("token", response.data.token, { expires: 30 });
 
-      handleToken(response.data.token, response.data.username);
-      if (response.data.isAdmin === response.data.token) {
+      handleToken(response.data.token);
+      if (response.data.isAdmin) {
         navigate("/adminPage");
       } else {
         navigate("/menu");
