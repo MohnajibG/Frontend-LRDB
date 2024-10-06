@@ -18,12 +18,12 @@ const AdminPage = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isAdmin) {
-      // Redirige l'utilisateur s'il n'est pas admin
-      navigate("/menu");
-    }
-  }, [isAdmin, navigate]);
+  // useEffect(() => {
+  //   if (!isAdmin) {
+  //     // Redirige l'utilisateur s'il n'est pas admin
+  //     navigate("/menu");
+  //   }
+  // }, [isAdmin, navigate]);
 
   const handleDelete = async (orderId) => {
     setIsLoading(true);
