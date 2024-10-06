@@ -40,7 +40,7 @@ const Login = ({ handleToken }) => {
       if (response.data.isAdmin) {
         // Passe isAdmin à AdminPage
         navigate("/adminPage", {
-          state: { token: response.data.token, isAdmin: true },
+          state: { isAdmin: true },
         });
       } else {
         navigate("/menu");

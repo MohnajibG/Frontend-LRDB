@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom";
 // Styles
 import "../assets/styles/pageAdmin.css";
 
-const AdminPage = ({ token, isAdmin }) => {
+const AdminPage = () => {
   const [dataOrder, setDataOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
