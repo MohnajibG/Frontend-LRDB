@@ -35,6 +35,8 @@ function App() {
 
 function AppLayout() {
   const [token, setToken] = useState(Cookies.get("token"));
+  const [username, setUsername] = useState(Cookies.get("username"));
+
   const [cart, setCart] = useState([]);
   const [orderNumber, setOrderNumber] = useState(1);
 
@@ -53,6 +55,21 @@ function AppLayout() {
     if (savedToken) setToken(savedToken);
   }, []);
 
+  const handleusername = (username) => {
+    if (username) {
+      Cookies.set("username", username, { expires: 30 });
+      setUsername(token);
+    } else {
+      Cookies.remove("username");
+      setUsername(null);
+    }
+  };
+
+  useEffect(() => {
+    const savedUsername = Cookies.get("username");
+    if (savedUsername) setUsername(savedUsername);
+  }, []);
+
   const handleValidation = () => {
     setOrderNumber(orderNumber + 1);
     // Logique pour la validation de commande
@@ -69,6 +86,7 @@ function AppLayout() {
           handleValidation={handleValidation}
           orderNumber={orderNumber}
           setOrderNumber={setOrderNumber}
+          username={username}
         />
       )}
       <div>

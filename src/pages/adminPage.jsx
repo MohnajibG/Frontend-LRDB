@@ -4,56 +4,39 @@ import axios from "axios";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 
-import { useLocation } from "react-router-dom";
-
 // Styles
 import "../assets/styles/pageAdmin.css";
 
-const AdminPage = () => {
+const AdminPage = ({ token }) => {
   const [dataOrder, setDataOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [errorMessage, setErrorMessage] = useState("");
-  const location = useLocation();
-  const { token, isAdmin } = location.state || {};
-
+  const [deleteData, setDeleteData] = useState("");
+  const [changeState, setChangeState] = useState("");
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (!isAdmin) {
-  //     // Redirige l'utilisateur s'il n'est pas admin
-  //     navigate("/menu");
-  //   }
-  // }, [isAdmin, navigate]);
-
   const handleDelete = async (orderId) => {
-    setIsLoading(true);
-    setErrorMessage("");
     try {
-      await axios.delete(
-        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
+      const response = await axios.delete(
+        `http://localhost:3000/order/${orderId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         }
       );
+      setDeleteData(response.data);
       setDataOrder((prevOrders) =>
         prevOrders.filter((order) => order._id !== orderId)
       );
     } catch (error) {
       console.log("Erreur lors de la suppression");
-      setErrorMessage("Impossible de supprimer la commande.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
   const handleChangeStateOrder = async (orderId) => {
-    setIsLoading(true);
-    setErrorMessage("");
     try {
-      await axios.put(
-        `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
+      const response = await axios.put(
+        `http://localhost:3000/order/${orderId}`,
         { etat: true },
         {
           headers: {
@@ -61,6 +44,7 @@ const AdminPage = () => {
           },
         }
       );
+      setChangeState(response.data);
       setDataOrder((prevOrders) =>
         prevOrders.map((order) =>
           order._id === orderId ? { ...order, etat: true } : order
@@ -68,41 +52,29 @@ const AdminPage = () => {
       );
     } catch (error) {
       console.log("Erreur lors du changement de statut");
-      setErrorMessage("Impossible de changer le statut de la commande.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const fetchDataOrder = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(
-        "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setDataOrder(response.data);
-    } catch (error) {
-      console.log("Erreur lors de la récupération des commandes ===>", error);
-      setErrorMessage("Erreur lors de la récupération des commandes.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    if (isAdmin) {
-      fetchDataOrder();
-      const intervalId = setInterval(() => {
-        fetchDataOrder();
-      }, 3000);
-      return () => clearInterval(intervalId);
-    }
-  }, [isAdmin]);
+    const fetchDataOrder = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/orders", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setDataOrder(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log("Erreur lors de la récupération des commandes ===>", error);
+        if (error.response.data.message === "Unauthorized") {
+          navigate("/fidelite");
+        }
+        setIsLoading(false);
+      }
+    };
+    fetchDataOrder();
+  }, []);
 
   return isLoading ? (
     <div>Loading...</div>
