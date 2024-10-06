@@ -2,9 +2,8 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
-import Cookies from "js-cookie";
 
-const Login = ({ handleToken }) => {
+const Login = ({ token }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -17,8 +16,8 @@ const Login = ({ handleToken }) => {
     setPasswordVisible((prev) => !prev);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
 
@@ -26,29 +25,33 @@ const Login = ({ handleToken }) => {
       const response = await axios.post(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/login",
         {
-          email,
-          password,
+          email: email,
+          password: password,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
-      Cookies.set("token", response.data.token, { expires: 30 });
+      handelToken(response.data);
 
-      // Envoie le token reçu pour l'authentification après connexion
-      handleToken(response.data.token);
-      navigate("/"); // Redirection vers la page d'accueil après connexion
+      navigate("/adminPage");
     } catch (error) {
-      if (error.response && error.response.data.message) {
-        setErrorMessage("Identifiants incorrects.");
-      } else {
-        setErrorMessage("Une erreur s'est produite, veuillez réessayer.");
-      }
+      setErrorMessage(
+        error.response
+          ? error.response.data.message
+          : "Une erreur s'est produite"
+      );
+
       setIsLoading(false);
     }
   };
 
   return (
     <main className="main-login">
-      <h1>Se connecter</h1>
+      <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="inpt-login"
@@ -81,11 +84,11 @@ const Login = ({ handleToken }) => {
           type="submit"
           disabled={isLoading || !email || !password}
         >
-          {isLoading ? "Connexion..." : "Se connecter"}
+          {isLoading ? "Connexion..." : "Log In"}
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/signup">
-          <p className="p-login">Pas encore de compte ? Inscris-toi!</p>
+          <p className="p-login">Tu n'as pas un compte ? Inscris-toi!</p>
         </Link>
       </form>
     </main>

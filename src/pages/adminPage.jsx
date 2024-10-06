@@ -71,7 +71,7 @@ const AdminPage = ({ token }) => {
       } catch (error) {
         console.log("Erreur lors de la récupération des commandes ===>", error);
         if (error.response.data.message === "Unauthorized") {
-          navigate("/home");
+          navigate("/");
         }
         setIsLoading(false);
       }
