@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
+import Cookies from "js-cookie";
 
-const Login = ({ token }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -22,30 +23,28 @@ const Login = ({ token }) => {
     setIsLoading(true);
 
     try {
+      // Requête de connexion vers l'API
       const response = await axios.post(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/login",
         {
           email: email,
           password: password,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
         }
       );
 
-      handelToken(response.data);
+      // Stocker le token dans les cookies pour une durée de 30 jours
+      Cookies.set("token", response.data.token, { expires: 30 });
 
+      // Rediriger vers la page admin après succès
       navigate("/adminPage");
     } catch (error) {
+      // Gérer les erreurs en affichant un message d'erreur
       setErrorMessage(
         error.response
           ? error.response.data.message
           : "Une erreur s'est produite"
       );
-
-      setIsLoading(false);
+      setIsLoading(false); // Arrêter le chargement après la réponse
     }
   };
 

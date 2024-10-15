@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import background from "../assets/images/backgroundimg.jpg";
-// Styles
 import "../assets/styles/home.css";
 
 const Home = () => {

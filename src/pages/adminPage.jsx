@@ -1,26 +1,31 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
+
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa6";
 
 // Styles
 import "../assets/styles/pageAdmin.css";
 
-const AdminPage = ({ token }) => {
+import burger from "../assets/images/burger.gif";
+
+const AdminPage = () => {
   const [dataOrder, setDataOrder] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [deleteData, setDeleteData] = useState("");
   const [changeState, setChangeState] = useState("");
   const navigate = useNavigate();
 
+  // Fonction pour supprimer une commande
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
         `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${Cookies.get("token")}`, // Centraliser l'utilisation du token
           },
         }
       );
@@ -29,10 +34,11 @@ const AdminPage = ({ token }) => {
         prevOrders.filter((order) => order._id !== orderId)
       );
     } catch (error) {
-      console.log("Erreur lors de la suppression");
+      console.error("Erreur lors de la suppression", error);
     }
   };
 
+  // Fonction pour changer l'état d'une commande
   const handleChangeStateOrder = async (orderId) => {
     try {
       const response = await axios.put(
@@ -40,7 +46,7 @@ const AdminPage = ({ token }) => {
         { etat: true },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${Cookies.get("token")}`, // Centraliser l'utilisation du token
           },
         }
       );
@@ -51,10 +57,11 @@ const AdminPage = ({ token }) => {
         )
       );
     } catch (error) {
-      console.log("Erreur lors du changement de statut");
+      console.error("Erreur lors du changement de statut", error);
     }
   };
 
+  // Récupérer les commandes au chargement de la page
   useEffect(() => {
     const fetchDataOrder = async () => {
       try {
@@ -62,29 +69,33 @@ const AdminPage = ({ token }) => {
           "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
           {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${Cookies.get("token")}`, // Centraliser l'utilisation du token
             },
           }
         );
         setDataOrder(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log("Erreur lors de la récupération des commandes ===>", error);
-        if (error.response.data.message === "Unauthorized") {
-          navigate("/");
+        if (error.response && error.response.data.message === "Unauthorized") {
+          navigate("/"); // Rediriger en cas d'erreur d'authentification
         }
         setIsLoading(false);
       }
     };
+
     fetchDataOrder();
-  }, []);
+    const intervalId = setInterval(fetchDataOrder, 1000);
+
+    return () => clearInterval(intervalId); // Nettoyage de l'intervalle lors du démontage
+  }, []); // [] signifie que l'effet ne se déclenche qu'une fois au montage
 
   return isLoading ? (
     <div>Loading...</div>
   ) : dataOrder.length === 0 ? (
-    <div className="admin-page">
+    <main className="admin-page0">
       <h1>Aucune commande en cours de préparation</h1>
-    </div>
+      <img src={burger} alt="" />
+    </main>
   ) : (
     <main className="admin-page">
       {dataOrder.map((order) => (

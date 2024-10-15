@@ -58,7 +58,7 @@ function AppLayout() {
   const handleusername = (username) => {
     if (username) {
       Cookies.set("username", username, { expires: 30 });
-      setUsername(token);
+      setUsername(username);
     } else {
       Cookies.remove("username");
       setUsername(null);

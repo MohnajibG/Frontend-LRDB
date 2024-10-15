@@ -1,10 +1,18 @@
 .admin-page {
-  margin-top: 25vh;
+  margin-top: 35vh;
+  margin-left: 5vw;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* Espace entre les commandes */
+  gap: 20px;
 }
-
+.admin-page0 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 35vh;
+  margin-left: 5vw;
+}
 .commande {
   padding: 30px;
   display: flex;
