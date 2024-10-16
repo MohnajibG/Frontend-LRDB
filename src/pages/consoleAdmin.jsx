@@ -8,8 +8,15 @@ const ConsoleAdmin = () => {
 
   return (
     <main className="console-admin">
-      <button onClick={() => navigate("/signup")}>Sign Up</button>
-      <button onClick={() => navigate("/login")}>Log In</button>
+      <h1>Bienvenue</h1>
+      <div>
+        <button className="btn-login" onClick={() => navigate("/signup")}>
+          Inscription
+        </button>
+        <button className="btn-login" onClick={() => navigate("/login")}>
+          Connexion
+        </button>
+      </div>
     </main>
   );
 };

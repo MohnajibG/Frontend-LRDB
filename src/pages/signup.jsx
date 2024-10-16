@@ -56,22 +56,22 @@ const Signup = ({ handleToken }) => {
 
   return (
     <main className="main-login">
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          className="inpt-login"
-          type="text"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-          required
-        />
+      <h1>S'inscrire</h1>
+      <form onSubmit={handleSubmit} className="sign-up">
         <input
           className="inpt-login"
           type="email"
           placeholder="E-mail"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          required
+        />
+        <input
+          className="inpt-login"
+          type="text"
+          placeholder="Nom d'utilisateur"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
           required
         />
         <div className="inpt-login-pw">
@@ -97,7 +97,7 @@ const Signup = ({ handleToken }) => {
           type="submit"
           disabled={isLoading || !username || !email || !password}
         >
-          {isLoading ? "Inscription..." : "Sign Up"}
+          {isLoading ? "Inscription..." : "Envoyer"}
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/login">

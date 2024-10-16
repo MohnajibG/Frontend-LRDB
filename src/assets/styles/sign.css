@@ -1,0 +1,51 @@
+.main-login {
+  padding-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.main-login h1,
+.console-admin h1 {
+  font-size: 28px;
+  margin-bottom: 100px;
+}
+
+.inpt-login {
+  width: 20vw;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid rgba(247, 127, 0, 1);
+}
+.btn-login {
+  color: #d90429;
+  width: 20vw;
+  margin-bottom: 10px;
+  border: none;
+  border: 1px solid #d90429;
+  border-radius: 4px;
+  height: 30px;
+}
+
+.btn-login:hover {
+  background-color: #d90429;
+  color: aliceblue;
+  font-weight: bolder;
+}
+.p-login {
+  margin-top: 30px;
+}
+.sign-up {
+  display: flex;
+  flex-direction: column;
+}
+.console-admin {
+  padding: 8vw;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.console-admin div {
+  display: flex;
+  gap: 30px;
+}

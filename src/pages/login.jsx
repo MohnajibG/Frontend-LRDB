@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+import "../assets/styles/sign.css";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +52,7 @@ const Login = () => {
 
   return (
     <main className="main-login">
-      <h1>Log In</h1>
+      <h1>Se connecter</h1>
       <form onSubmit={handleSubmit}>
         <input
           className="inpt-login"
@@ -83,7 +85,7 @@ const Login = () => {
           type="submit"
           disabled={isLoading || !email || !password}
         >
-          {isLoading ? "Connexion..." : "Log In"}
+          {isLoading ? "Connexion..." : "Connexion"}
         </button>
         {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <Link to="/signup">
