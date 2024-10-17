@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 import "../assets/styles/order.css";
@@ -8,7 +8,11 @@ const Order = () => {
   const { id } = useParams(); // Récupère l'ID de la commande à partir de l'URL
   const [order, setOrder] = useState(null); // Initialise avec null pour éviter un objet vide par défaut
   const [isLoading, setIsLoading] = useState(true); // Gestion de l'état de chargement
-  const [errorMessage, setErrorMessage] = useState(""); // État pour les erreurs
+
+  const handleLogout = () => {
+    Cookies.remove("token"); // Suppression du cookie token
+    navigate("/"); // Redirection vers la page de connexion
+  };
 
   const fetchDataOrder = async () => {
     try {
@@ -19,19 +23,7 @@ const Order = () => {
       console.log(response.data);
       setIsLoading(false);
     } catch (error) {
-      if (error.response) {
-        // Réponse du serveur avec un code autre que 2xx
-        if (error.response.status === 404) {
-          setErrorMessage("Commande non trouvée.");
-        } else {
-          setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
-        }
-      } else {
-        // Erreur réseau ou autre
-        setErrorMessage(
-          "Impossible de récupérer la commande. Problème de réseau."
-        );
-      }
+      console.log(error);
       setIsLoading(false);
     }
   };
@@ -47,8 +39,6 @@ const Order = () => {
 
   return isLoading ? (
     <div>Loading...</div>
-  ) : errorMessage ? (
-    <div className="error">{errorMessage}</div>
   ) : (
     order && (
       <main className="order">
@@ -96,8 +86,16 @@ const Order = () => {
           )}
         </div>
         <p className="order-total">Total : {order.totalPrice?.toFixed(2)} €</p>
-        <p>Merci de vous diriger au comptoir pour récupérer votre commande.</p>
+        <p>
+          Apres votre payement merci de vous diriger au comptoir pour récupérer
+          votre commande.
+        </p>
         <p>Bon appétit !</p>
+        <Link to="/">
+          <button className="logout-button" onClick={handleLogout}>
+            Payer
+          </button>
+        </Link>
       </main>
     )
   );

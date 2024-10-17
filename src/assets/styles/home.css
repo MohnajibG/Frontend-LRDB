@@ -1,4 +1,7 @@
 /* Container de l'image avec le contenu par dessus */
+.home {
+  background-color: rgba(247, 127, 0, 1);
+}
 .image-container {
   margin-left: -20vw;
   position: relative;
@@ -9,6 +12,7 @@
   align-items: center;
   object-fit: cover;
   overflow: hidden;
+  background-color: rgba(247, 127, 0, 1);
 }
 
 .background-image {

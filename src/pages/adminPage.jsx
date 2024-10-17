@@ -18,6 +18,11 @@ const AdminPage = () => {
   const [changeState, setChangeState] = useState("");
   const navigate = useNavigate();
 
+  // Fonction pour déconnecter l'utilisateur
+  const handleLogout = () => {
+    Cookies.remove("token"); // Suppression du cookie token
+    navigate("/"); // Redirection vers la page de connexion
+  };
   // Fonction pour supprimer une commande
   const handleDelete = async (orderId) => {
     try {
@@ -75,9 +80,11 @@ const AdminPage = () => {
         );
         setDataOrder(response.data);
         setIsLoading(false);
+        navigate("/adminPage");
       } catch (error) {
-        if (error.response && error.response.data.message === "Unauthorized") {
-          navigate("/"); // Rediriger en cas d'erreur d'authentification
+        // Si le backend renvoie une erreur  401 Unauthorized
+        if (error.response.status === 401) {
+          navigate("/"); // Rediriger vers la page d'acceuil
         }
         setIsLoading(false);
       }
@@ -93,11 +100,17 @@ const AdminPage = () => {
     <div>Loading...</div>
   ) : dataOrder.length === 0 ? (
     <main className="admin-page0">
+      <button className="logout-button" onClick={handleLogout}>
+        Déconnexion
+      </button>
       <h1>Aucune commande en cours de préparation</h1>
       <img src={burger} alt="" />
     </main>
   ) : (
     <main className="admin-page">
+      <button className="logout-button" onClick={handleLogout}>
+        Déconnexion
+      </button>
       {dataOrder.map((order) => (
         <div key={order._id} className="commande">
           <div className="header-commande">

@@ -12,11 +12,13 @@
 
 .inpt-login {
   width: 20vw;
+  height: 30px;
   margin-bottom: 30px;
   border: none;
   border-bottom: 1px solid rgba(247, 127, 0, 1);
 }
-.btn-login {
+.btn-login,
+.logout-button {
   color: #d90429;
   width: 20vw;
   margin-bottom: 10px;
@@ -26,7 +28,8 @@
   height: 30px;
 }
 
-.btn-login:hover {
+.btn-login:hover,
+.logout-button:hover {
   background-color: #d90429;
   color: aliceblue;
   font-weight: bolder;
@@ -48,4 +51,8 @@
 .console-admin div {
   display: flex;
   gap: 30px;
+}
+
+.logout-button {
+  width: 10vw;
 }
