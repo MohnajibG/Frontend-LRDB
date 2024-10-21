@@ -32,7 +32,6 @@ const Signup = ({ handleToken }) => {
           password,
         }
       );
-      Cookies.set("token", response.data.token, { expires: 30 });
 
       // Envoie le token reçu pour l'authentification après inscription
       handleToken(response.data.token);
