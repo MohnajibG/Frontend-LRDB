@@ -32,7 +32,6 @@ const Signup = ({ handleToken }) => {
           password,
         }
       );
-
       // Envoie le token reçu pour l'authentification après inscription
       handleToken(response.data.token);
       navigate("/login");
