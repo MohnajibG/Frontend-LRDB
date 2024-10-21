@@ -1,10 +1,14 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import "../assets/styles/sidebar.css";
 import axios from "axios";
+import Cookies from "js-cookie";
+
+import { IoMdClose } from "react-icons/io";
 
 const SideBar = ({ cart, setCart }) => {
-  const location = useLocation();
+  const username = Cookies.get("username");
 
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleIncrease = (item) => {
@@ -43,7 +47,6 @@ const SideBar = ({ cart, setCart }) => {
   // Fonction pour valider la commande
   const handleValidationOrder = async () => {
     try {
-      // Création de l'objet de la commande
       const orderDetails = {
         items: cart.map((item) => ({
           etat: item.etat,
@@ -66,10 +69,35 @@ const SideBar = ({ cart, setCart }) => {
     }
   };
 
+  // Fonction pour déconnecter l'utilisateur
+  const handleLogout = () => {
+    Cookies.remove("token"); // Supprimer le token des cookies
+    Cookies.remove("username"); // Supprimer le nom d'utilisateur des cookies
+    navigate("/menu"); // Rediriger vers la page de connexion
+  };
+
   return (
     <div className="sidebar">
-      <h2>Votre Panier : </h2>
+      <div className="username">
+        <h2>
+          Bienvenue,
+          {username ? (
+            <span>
+              {username}
+              <button onClick={handleLogout}>
+                <IoMdClose />
+              </button>
+            </span>
+          ) : (
+            <button onClick={() => navigate("/connection")}>
+              Connectez-vous
+            </button>
+          )}
+        </h2>
+        <h3>Prêt à vous régaler aujourd'hui ?</h3>
+      </div>
 
+      <h2>Votre Panier :</h2>
       <div className="scroll-container">
         {cart.length === 0 ? (
           <p>Votre panier est vide...</p>
@@ -92,7 +120,9 @@ const SideBar = ({ cart, setCart }) => {
       </div>
 
       <div className="total">
-        <h2>Total: {totalPrice.toFixed(2)}€</h2>
+        <h2>
+          Total : <span>{totalPrice.toFixed(2)}</span>€
+        </h2>
         {cart.length > 0 && (
           <button
             onClick={handleValidationOrder}

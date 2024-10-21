@@ -84,7 +84,7 @@ const AdminPage = () => {
       } catch (error) {
         // Si le backend renvoie une erreur  401 Unauthorized
         if (error.response.status === 401) {
-          navigate("/"); // Rediriger vers la page d'acceuil
+          navigate("/menu"); // Rediriger vers la page menu
         }
         setIsLoading(false);
       }
@@ -94,7 +94,7 @@ const AdminPage = () => {
     const intervalId = setInterval(fetchDataOrder, 1000);
 
     return () => clearInterval(intervalId); // Nettoyage de l'intervalle lors du démontage
-  }, []); // [] signifie que l'effet ne se déclenche qu'une fois au montage
+  }, [navigate]); // [] signifie que l'effet ne se déclenche qu'une fois au montage
 
   return isLoading ? (
     <div>Loading...</div>
@@ -107,61 +107,64 @@ const AdminPage = () => {
       <img src={burger} alt="" />
     </main>
   ) : (
-    <main className="admin-page">
+    <main>
       <button className="logout-button" onClick={handleLogout}>
         Déconnexion
       </button>
-      {dataOrder.map((order) => (
-        <div key={order._id} className="commande">
-          <div className="header-commande">
-            <button
-              className="button-check"
-              onClick={() => handleChangeStateOrder(order._id)}
-            >
-              <FaCheck />
-            </button>
-            <button
-              className="button-delete"
-              onClick={() => handleDelete(order._id)}
-            >
-              <IoMdClose />
-            </button>
-            <h3>Commande #{order.orderNumber}</h3>
-            <p>{new Date(order.createdAt).toLocaleString()}</p>
-            {order.etat === false ? (
-              <div
-                className="etat-order"
-                style={{
-                  backgroundColor: "red",
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                }}
-              ></div>
-            ) : (
-              <div
-                className="etat-order"
-                style={{
-                  backgroundColor: "green",
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                }}
-              ></div>
-            )}
-          </div>
-          <h4>Détails de la commande:</h4>
-          {order.items.map((item) => (
-            <div key={item.name} className="commande-details">
-              <p>{item.name}</p>
-              <p>{item.quantity}</p>x<p>{item.price}€</p>
+      <div className="admin-page">
+        {dataOrder.map((order) => (
+          <div key={order._id} className="commande">
+            <div className="header-commande">
+              <button
+                className="button-check"
+                onClick={() => handleChangeStateOrder(order._id)}
+                disabled={order.etat === true} // Désactiver si la commande est déjà validée
+              >
+                <FaCheck />
+              </button>
+              <button
+                className="button-delete"
+                onClick={() => handleDelete(order._id)}
+              >
+                <IoMdClose />
+              </button>
+              <h3>Commande #{order.orderNumber}</h3>
+              <p>{new Date(order.createdAt).toLocaleString()}</p>
+              {order.etat === false ? (
+                <div
+                  className="etat-order"
+                  style={{
+                    backgroundColor: "red",
+                    width: "30px",
+                    height: "30px",
+                    borderRadius: "50%",
+                  }}
+                ></div>
+              ) : (
+                <div
+                  className="etat-order"
+                  style={{
+                    backgroundColor: "green",
+                    width: "30px",
+                    height: "30px",
+                    borderRadius: "50%",
+                  }}
+                ></div>
+              )}
             </div>
-          ))}
-          <p className="total-commande">
-            Total: {order.totalPrice?.toFixed(2)} €
-          </p>
-        </div>
-      ))}
+            <h4>Détails de la commande:</h4>
+            {order.items.map((item) => (
+              <div key={item.name} className="commande-details">
+                <p>{item.name}</p>
+                <p>{item.quantity}</p>x<p>{item.price}€</p>
+              </div>
+            ))}
+            <p className="total-commande">
+              Total: {order.totalPrice?.toFixed(2)} €
+            </p>
+          </div>
+        ))}
+      </div>
     </main>
   );
 };

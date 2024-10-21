@@ -11,29 +11,29 @@ a:visited {
   color: #2b2d42;
 }
 
-.button {
+/* .button {
   align-items: center;
   background-color: #d62828;
   border-radius: 12px;
-}
+} */
 
 .button {
   cursor: pointer;
   border: solid rgb(0, 0, 0);
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 22px;
   color: rgb(0, 0, 0);
-  padding: 10px 20px;
+  padding: 7px 5px;
   transition: 2842ms;
-  width: 200px;
-  box-shadow: rgb(0, 0, 0) 4px 4px 5px 2px;
-  border-radius: 20px;
+  width: 120px;
+  /* box-shadow: rgb(0, 0, 0) 4px 4px 5px 2px; */
+  border-radius: 10px;
   background: rgb(214, 40, 40);
   --hover-borderc: #f77f00;
   --hover-bgc: #f77f00;
   --hover-color: #000000;
   --hover-borderSize: 1px;
-  --hover-width: 200px;
+  --hover-width: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,12 +42,13 @@ a:visited {
 
 .button:hover {
   color: rgb(0, 0, 0);
-  width: 200px;
-  background: rgb(247, 127, 0) none repeat scroll 0% 0% / auto padding-box
+  width: 150px;
+  background: rgb(56, 165, 1) none repeat scroll 0% 0% / auto padding-box
     border-box;
   border-color: rgb(5, 3, 0);
   border-width: 1px;
   border-style: solid;
+  text-shadow: #000000 0px 0px 1px;
 }
 
 main {

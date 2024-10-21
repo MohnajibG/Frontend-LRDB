@@ -1,8 +1,7 @@
 .admin-page {
   margin-top: 35vh;
-  margin-left: 5vw;
+  margin-left: -10vw;
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -36,7 +35,7 @@
 }
 
 .button-admin {
-  padding: 30px;
+  padding: 40px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -53,7 +52,6 @@
 
 .header-commande {
   display: flex;
-  /* flex-direction: column; */
   padding: 10px 10px;
 
   background-color: #386641c0;
@@ -70,7 +68,7 @@
 
 .button-check {
   border: none;
-  padding: 4px;
+  padding: 4px 4px 2px 4px;
   background-color: green;
   border: black solid 1px;
   border-radius: 2px;
@@ -79,10 +77,17 @@
 .button-check:hover {
   background: rgb(0, 247, 29);
 }
+.button-check:disabled {
+  padding: 2px 4px 1px 4px;
+  background-color: #ccc; /* Couleur de fond grise pour les boutons désactivés */
+  cursor: not-allowed; /* Changer le curseur en 'interdit' */
+  border: none;
+}
 
 .button-delete {
   border: none;
-  padding: 4px;
+
+  padding: 4px 4px 2px 4px;
   background-color: rgb(230, 199, 1);
   border: black solid 1px;
   border-radius: 2px;
@@ -93,4 +98,13 @@
 .commande h4 {
   font-weight: bolder;
   font-size: 16px;
+}
+.logout-button {
+  position: absolute;
+  top: 190px;
+  right: 20px;
+}
+
+.logout-button:hover {
+  background-color: #ff0000;
 }

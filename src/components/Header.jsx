@@ -20,7 +20,7 @@ const Header = () => {
       </Link>
 
       <div className="icon-header">
-        <Link to="/consoleAdmin">
+        <Link to="/connection">
           <CgProfile />
         </Link>
       </div>

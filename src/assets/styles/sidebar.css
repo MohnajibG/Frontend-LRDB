@@ -12,7 +12,7 @@
   padding: 10px 20px;
   margin: 15px auto;
   margin-top: 2vw;
-  max-height: 350px;
+  max-height: 180px;
   background-color: #fcedd5;
   overflow-y: auto;
   z-index: 4;
@@ -66,7 +66,36 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #681212;
 }
+.username span {
+  color: #681212;
+  display: flex;
+}
+
+.username {
+  margin-top: -30px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.username h3 {
+  padding-left: 20px;
+}
+.username button {
+  border: none;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border-radius: 10px;
+  background: rgb(214, 40, 40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: row; */
+}
+
 @media (max-width: 932px) {
   /* Style de la sidebar */
   .sidebar {
@@ -78,7 +107,6 @@
     width: 60%;
     padding: 5px 10px;
     margin-top: 10vw;
-    /* max-height: 350px; */
   }
 
   .scroll-containe::-webkit-scrollbar {

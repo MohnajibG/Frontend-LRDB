@@ -4,9 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Cookies from "js-cookie";
-import { Navigate } from "react-router-dom";
+import { useState } from "react";
 
 // Style
 import "./App.css";
@@ -14,15 +12,15 @@ import "./App.css";
 // Composants
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
+
+// Pages
 import Menu from "./pages/menu";
 import Login from "./pages/login";
 import Signup from "./pages/signup";
 import AdminPage from "./pages/adminPage";
-
-// Pages
 import Home from "./pages/home";
 import Order from "./pages/order";
-import ConsoleAdmin from "./pages/consoleAdmin";
+import Connection from "./pages/connection";
 
 function App() {
   return (
@@ -34,41 +32,8 @@ function App() {
 }
 
 function AppLayout() {
-  const [token, setToken] = useState(Cookies.get("token"));
-  const [username, setUsername] = useState(Cookies.get("username"));
-
   const [cart, setCart] = useState([]);
   const [orderNumber, setOrderNumber] = useState(1);
-
-  const handleToken = (token) => {
-    if (token) {
-      Cookies.set("token", token, { expires: 30 });
-      setToken(token);
-    } else {
-      Cookies.remove("token");
-      setToken(null);
-    }
-  };
-
-  useEffect(() => {
-    const savedToken = Cookies.get("token");
-    if (savedToken) setToken(savedToken);
-  }, []);
-
-  const handleusername = (username) => {
-    if (username) {
-      Cookies.set("username", username, { expires: 30 });
-      setUsername(username);
-    } else {
-      Cookies.remove("username");
-      setUsername(null);
-    }
-  };
-
-  useEffect(() => {
-    const savedUsername = Cookies.get("username");
-    if (savedUsername) setUsername(savedUsername);
-  }, []);
 
   const handleValidation = () => {
     setOrderNumber(orderNumber + 1);
@@ -86,7 +51,7 @@ function AppLayout() {
           handleValidation={handleValidation}
           orderNumber={orderNumber}
           setOrderNumber={setOrderNumber}
-          username={username}
+          // username={username}
         />
       )}
       <div>
@@ -97,16 +62,10 @@ function AppLayout() {
             element={<Menu cart={cart} setCart={setCart} />}
           />
           <Route path="/order/:id" element={<Order />} />
-          <Route path="/login" element={<Login handleToken={handleToken} />} />
-          <Route
-            path="/signup"
-            element={<Signup handleToken={handleToken} />}
-          />
-          <Route path="/consoleAdmin" element={<ConsoleAdmin />} />
-          <Route
-            path="/adminPage"
-            element={<AdminPage token={token} handleToken={handleToken} />}
-          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/connection" element={<Connection />} />
+          <Route path="/adminPage" element={<AdminPage />} />
         </Routes>
       </div>
     </div>

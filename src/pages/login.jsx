@@ -36,6 +36,7 @@ const Login = () => {
 
       // Stocker le token dans les cookies pour une durée de 30 jours
       Cookies.set("token", response.data.token);
+      Cookies.set("username", response.data.username);
 
       // Rediriger vers la page admin après succès
       navigate("/adminPage");
