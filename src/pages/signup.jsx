@@ -22,34 +22,36 @@ const Signup = ({ handleToken }) => {
     event.preventDefault();
     setErrorMessage("");
     setIsLoading(true);
-
+    console.log(1);
     try {
       const response = await axios.post(
         "https://site--backend-lrdb--dnxhn8mdblq5.code.run/user/signup",
         {
-          username,
           email,
+          username,
           password,
         }
       );
-      // Envoie le token reçu pour l'authentification après inscription
-      handleToken(response.data.token);
-      navigate("/login");
+      Cookies.set("token", response.data.token, { expires: 30 });
+      Cookies.set("username", response.data.username, { expires: 30 });
+
+      navigate("/menu");
     } catch (error) {
-      if (error.response.data.message === "Missing parameters") {
-        setErrorMessage("Veuillez remplir tous les champs");
-      } else if (error.response.data.message === "Email already in database") {
+      console.log(error);
+      if (error.response.data.message === "Paramètres manquants") {
+        setErrorMessage("Veuillez remplir tous les champs.");
+      } else if (error.response.data.message === "Email déja enregitré") {
         setErrorMessage("Cet email est déjà enregistré.");
       } else if (
         error.response.data.message ===
-        "Password must be at least 8 characters long"
+        "Votre mot de passe doit avoir au moins 8 caractères"
       ) {
         setErrorMessage("Le mot de passe doit contenir au moins 8 caractères.");
       } else {
         setErrorMessage("Une erreur s'est produite, veuillez réessayer.");
       }
-      setIsLoading(false);
     }
+    setIsLoading(false);
   };
 
   return (

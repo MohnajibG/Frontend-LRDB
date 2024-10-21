@@ -48,7 +48,6 @@ const Order = () => {
         <div className="header-order">
           <h3>Commande #{order.orderNumber}</h3>
           <p>{new Date(order.createdAt).toLocaleString()}</p>
-          {/* Indicateur visuel du statut de la commande */}
           {order.etat ? (
             <div
               className="status-indicator"
