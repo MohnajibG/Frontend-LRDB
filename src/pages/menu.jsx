@@ -5,9 +5,9 @@ import logo from "../assets/images/burger.svg";
 
 const Menu = ({ cart, setCart }) => {
   const handleAddToCart = (item) => {
-    const addCartCopy = [...cart];
+    const addCartCopy = [...cart]; // Copie du panier
     const foundItem = addCartCopy.find(
-      (cartItem) => cartItem.name === item.name
+      (cartItem) => cartItem.name === item.name // Recherche si l'article est déjà dans le panier
     );
 
     if (!foundItem) {
@@ -17,10 +17,10 @@ const Menu = ({ cart, setCart }) => {
         quantity: 1,
       });
     } else {
-      foundItem.quantity++;
+      foundItem.quantity = foundItem.quantity + 1;
     }
 
-    setCart(addCartCopy);
+    setCart(addCartCopy); // Mise à jour du panier avec la copie modifiée
   };
 
   return (

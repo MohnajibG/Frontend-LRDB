@@ -11,36 +11,39 @@ const SideBar = ({ cart, setCart }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Fonction pour augmenter la quantité d'un article dans le panier
   const handleIncrease = (item) => {
     const updatedCart = cart.map((cartItem) =>
       cartItem.name === item.name
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
+        ? { ...cartItem, quantity: cartItem.quantity + 1 } // Incrémente la quantité si l'article est le meme
         : cartItem
     );
-    setCart(updatedCart);
+    setCart(updatedCart); // Met à jour le panier avec les nouvelles quantités
   };
 
+  // Fonction pour diminuer la quantité d'un article
   const handleDecrease = (item) => {
     const updatedCart = cart
       .map((cartItem) => {
         if (cartItem.name === item.name) {
-          return { ...cartItem, quantity: cartItem.quantity - 1 };
+          return { ...cartItem, quantity: cartItem.quantity - 1 }; // Décrémente la quantité si l'article est le meme
         }
         return cartItem;
       })
-      .filter((cartItem) => cartItem.quantity > 0);
+      .filter((cartItem) => cartItem.quantity > 0); // Filtre pour retirer les articles dont la quantité est à 0
 
-    setCart(updatedCart);
+    setCart(updatedCart); // Met à jour le panier avec les nouvelles quantités
   };
 
+  // Fonction pour supprimer complètement un article du panier
   const handleRemove = (item) => {
-    const updatedCart = cart.filter((cartItem) => cartItem.name !== item.name);
-    setCart(updatedCart);
+    const updatedCart = cart.filter((cartItem) => cartItem.name !== item.name); // Filtre les articles pour supprimer celui qui correspond
+    setCart(updatedCart); // Met à jour le panier
   };
 
   // Calculer le total du panier
   const totalPrice = cart.reduce(
-    (acc, item) => acc + item.price * item.quantity,
+    (accumulator, item) => accumulator + item.price * item.quantity,
     0
   );
 
@@ -62,10 +65,9 @@ const SideBar = ({ cart, setCart }) => {
         orderDetails
       );
       navigate(`/order/${response.data.id}`);
-      console.log("Commande envoyée avec ID ==>", response.data.id);
-      setCart([]);
+      setCart([]); // Vider la panier apres la validation de la commande
     } catch (error) {
-      console.error("Erreur lors de l'envoi de la commande :", error);
+      console.log("Erreur lors de l'envoi de la commande :", error);
     }
   };
 

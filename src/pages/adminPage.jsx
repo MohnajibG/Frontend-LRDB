@@ -23,23 +23,25 @@ const AdminPage = () => {
     Cookies.remove("token"); // Suppression du cookie token
     navigate("/"); // Redirection vers la page de connexion
   };
-  // Fonction pour supprimer une commande
+  // Fonction pour supprimer une commande avec son ID
   const handleDelete = async (orderId) => {
     try {
       const response = await axios.delete(
         `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
         {
           headers: {
-            Authorization: `Bearer ${Cookies.get("token")}`, // Centraliser l'utilisation du token
+            Authorization: `Bearer ${Cookies.get("token")}`, // Utilisation du token pour authentification
           },
         }
       );
-      setDeleteData(response.data);
+      setDeleteData(response.data); // Fonction pour supprimer une commande
+
+      // Met à jour la liste des commandes après la suppression avec filter
       setDataOrder((prevOrders) =>
         prevOrders.filter((order) => order._id !== orderId)
       );
     } catch (error) {
-      console.error("Erreur lors de la suppression", error);
+      console.log("Erreur lors de la suppression", error);
     }
   };
 
@@ -48,21 +50,23 @@ const AdminPage = () => {
     try {
       const response = await axios.put(
         `https://site--backend-lrdb--dnxhn8mdblq5.code.run/order/${orderId}`,
-        { etat: true },
+        { etat: true }, // Envoi d'un état modifié à "true"
         {
           headers: {
-            Authorization: `Bearer ${Cookies.get("token")}`, // Centraliser l'utilisation du token
+            Authorization: `Bearer ${Cookies.get("token")}`, // Utilisation du token pour authentification
           },
         }
       );
-      setChangeState(response.data);
+      setChangeState(response.data); // Mettre à jour l'état après le changement
+
+      // Mettre a jour l'etat de la commande
       setDataOrder((prevOrders) =>
         prevOrders.map((order) =>
           order._id === orderId ? { ...order, etat: true } : order
         )
       );
     } catch (error) {
-      console.error("Erreur lors du changement de statut", error);
+      console.log("Erreur lors du changement de statut", error);
     }
   };
 
@@ -74,11 +78,11 @@ const AdminPage = () => {
           "https://site--backend-lrdb--dnxhn8mdblq5.code.run/orders",
           {
             headers: {
-              Authorization: `Bearer ${Cookies.get("token")}`, // Centraliser l'utilisation du token
+              Authorization: `Bearer ${Cookies.get("token")}`, // Utilisation du token pour authentification de la requete
             },
           }
         );
-        setDataOrder(response.data);
+        setDataOrder(response.data); // Met à jour l'état après le changement
         setIsLoading(false);
         navigate("/adminPage");
       } catch (error) {
